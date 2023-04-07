@@ -43,32 +43,70 @@ function flyBoxes() {
 
 onMount(() => {
 
-    gsap.timeline({
-    scrollTrigger: {
-      trigger: ".trigger",
-      scrub: 0.75,
-      pin: true,
-      start: "top top",
-      end: "+=125%"
-    }
-  })
-  .to(".box", {
-    force3D: true,
-    duration: 1,
-    xPercent: 100,
-    ease: "power1.inOut",
-    stagger: { amount: 1 }
-  })
-  .to(".box", { ease: "power1.out", duration: 1, rotation: "110deg" }, 0)
-  .to(".box", { ease: "power1.in", duration: 1, rotation: "0deg" }, 1);
+    gsap.fromTo(".box", {
+      opacity: 0,
+    }, {
+      duration: 2.0,
+      opacity: 1,
+      ease: "power4.inOut",
+      stagger: { amount: 0.2 }
+    });
 
-//   // add event listeners to the links
-//   const aboutLink = document.querySelector("a[href='/']");
-//   aboutLink.addEventListener("click", flyBoxes);
-//   const projectLink = document.querySelector("a[href='/projects']");
-//   projectLink.addEventListener("click", flyBoxes);
-//   const blogLink = document.querySelector("a[href='/blog']");
-//   blogLink.addEventListener("click", flyBoxes);
+    gsap.fromTo(".chasemartin", {
+      opacity: 0
+    }, {
+      duration: 1,
+      delay: 2,
+      opacity: 1,
+      ease: "power1.inOut",
+      stagger: { amount: 1 }
+    });
+
+    gsap.fromTo(".welcome", {
+      opacity: 0
+    }, {
+      duration: 1,
+      delay: 2,
+      opacity: 1,
+      ease: "power1.inOut",
+      stagger: { amount: 1 }
+    });
+
+    gsap.fromTo(".downscroll", {
+      opacity: 0
+    }, {
+      duration: 1,
+      delay: 2,
+      opacity: 1,
+      ease: "power1.inOut",
+      stagger: { amount: 1 }
+    });
+
+    gsap.timeline({
+  scrollTrigger: {
+    trigger: ".trigger",
+    scrub: 0.75,
+    pin: true,
+    start: 0,
+    end: "+=100%"
+  }
+})
+.to(".box", {
+  force3D: true,
+  duration: 1,
+  xPercent: 100,
+  ease: "power1.inOut",
+  stagger: { amount: 1 },
+  onUpdate: function() {
+    // Set the background position for each box
+    this.targets().forEach(function(/** @type {{ style: { transition: string; }; }} */ box) {
+        box.style.transition = "0.05s ease-out";
+    });
+},
+})
+.to(".box", { ease: "power1.out", duration: 1, rotation: "100deg" }, 0)
+.to(".box", { ease: "power1.in", duration: 1, rotation: "180deg" }, 1);
+
 const anchors = document.querySelectorAll('a');
 anchors.forEach(anchor => {
   anchor.addEventListener('click', e => {
@@ -92,13 +130,17 @@ anchors.forEach(anchor => {
                 <a href="/blog">Blog</a><br>
             </div>
         </span>
-    <div class="upscroll">
-        Scroll up to return home
+    <div class="navtitle">
+        Navigation
     </div>
     {#each boxes as box}
         <div class="box"></div>
     {/each}
+    <div class="welcome">Software Development <br>
+        & <br>
+        Data Science
+    </div>
     <div class= downscroll>
-        Scroll Down
+       Scroll Down...
     </div>
 </section>
