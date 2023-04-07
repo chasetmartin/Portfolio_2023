@@ -4,7 +4,6 @@
 	 padding: 0;
 	 height: 100vh;
 	 font-family: "Raleway", serif;
-	 text-transform: uppercase;
 }
  h2 {
 	 font-size: clamp(1rem, 5vw, 5rem);
@@ -43,7 +42,6 @@ span.chasemartin {
     font-size: 8em;
     z-index: 2;
     width: 50%;
-    text-transform: uppercase;
     font-weight: 300;
     font-style: italic;
     color: var(--light);
