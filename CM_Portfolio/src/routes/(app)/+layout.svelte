@@ -1,0 +1,7 @@
+<nav>
+    <a href="/">Home</a>
+    <a href="/about">About Me</a>
+    <a href="/projects">Projects</a>
+    <a href="/blog">Blog</a>
+</nav>
+<slot />
