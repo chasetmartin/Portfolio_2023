@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 // Create boxes function
 let numBoxes = 200; // number of boxes to render
 
+
 /**
      * @param {number} numBoxes
      */
@@ -43,6 +44,7 @@ function flyBoxes() {
 
 onMount(() => {
 
+    // @ts-ignore
     gsap.fromTo(".box", {
       opacity: 0,
     }, {
@@ -52,6 +54,7 @@ onMount(() => {
       stagger: { amount: 0.2 }
     });
 
+    // @ts-ignore
     gsap.fromTo(".chasemartin", {
       opacity: 0
     }, {
@@ -62,6 +65,7 @@ onMount(() => {
       stagger: { amount: 1 }
     });
 
+    // @ts-ignore
     gsap.fromTo(".welcome", {
       opacity: 0
     }, {
@@ -72,6 +76,7 @@ onMount(() => {
       stagger: { amount: 1 }
     });
 
+    // @ts-ignore
     gsap.fromTo(".downscroll", {
       opacity: 0
     }, {
@@ -125,9 +130,9 @@ anchors.forEach(anchor => {
     <span class="down chasemartin">Chase<br />Martin</span>
         <span class="up">
             <div class="navmain">
-                <a href="/">About Me</a><br>
-                <a href="/projects">Projects</a><br>
-                <a href="/blog">Blog</a><br>
+                <a class="navlink" href="/about">About Me</a><br>
+                <a class="navlink" href="/projects">Projects</a><br>
+                <a class="navlink" href="/blog">Blog</a><br>
             </div>
         </span>
     <div class="navtitle">
