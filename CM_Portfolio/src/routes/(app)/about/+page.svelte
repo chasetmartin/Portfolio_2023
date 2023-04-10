@@ -1,1 +1,2 @@
-<h1>About Page</h1>
+<h2>About</h2>
+<h3>Coming soon...</h3>
