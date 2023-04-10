@@ -1,1 +1,2 @@
-<h1>Blog Page</h1>
+<h2>Blog</h2>
+<h3>Coming soon...</h3>

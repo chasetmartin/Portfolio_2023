@@ -15,6 +15,16 @@
 	 width: 90vw;
 	 max-width: 1200px;
 }
+h3 {
+    font-size: clamp(1rem, 5vw, 5rem);
+    font-weight: 100;
+    text-align: center;
+    letter-spacing: 0.5em;
+    margin-right: -0.5em;
+    color: #ccc;
+    width: 45vw;
+    max-width: 1200px;
+}
 
 body {
     --light: #d6d8d8;
@@ -42,7 +52,10 @@ span.chasemartin {
     font-size: 8em;
     z-index: 2;
     width: 50%;
-    font-weight: 300;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    /* text-shadow: #161616 0.1em 0.1em 0.2em; */
     font-style: italic;
     color: var(--light);
     top: 40%;
