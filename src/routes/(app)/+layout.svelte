@@ -4,4 +4,18 @@
     <a href="/projects">Projects</a>
     <a href="/blog">Blog</a>
 </nav>
-<slot />
+<body>
+    <slot />
+</body>
+<style>
+    body {
+        background: var(--dark);
+    }
+    nav {
+        background: var(--dark);
+    }
+    nav a {
+        text-decoration: none;
+        color: var(--light);
+    }
+</style>
