@@ -12,7 +12,7 @@
 /* Automatically enabled if user has Dark mode enabled */
 @media only screen and (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --background-color: #192f30;
+    --background-color: #11191f;
     --primary: #546e7a;
     --primary-hover: #607d8b;
     --primary-focus: rgba(84, 110, 122, 0.25);
