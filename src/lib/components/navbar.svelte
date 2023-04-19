@@ -20,6 +20,8 @@
 
 <style>
     nav {
-        padding: 1em;
+        padding-top: 1.5em;
+        padding-bottom: 0;
+        margin-bottom: 0;
     }
 </style>
