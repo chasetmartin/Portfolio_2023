@@ -1,16 +1,18 @@
 
             <article>
                 <header>
-                    <div class="container-fluid">
-                        <a role="button" class="contrast" href="/projects">Projects</a>
-                    </div>
+                    <a role="button" class="contrast outline" href="/projects">Projects</a>
                 </header>
                 <div>
-                    Check out what I'm currently working on
+                    Check out my projects page
+                    
+                    or head on over to my GitHub:
                 </div>
                 <footer>
-                    <div class="container-fluid">
-                        <a role="button" class="contrast outline" href="https://github.com/chasetmartin">GitHub</a>
-                    </div>
+                        <a role="button" class="outline" href="https://github.com/chasetmartin" target="_blank">GitHub</a>
                 </footer>
             </article>
+
+            <style>
+               
+            </style>

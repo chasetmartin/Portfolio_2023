@@ -8,7 +8,7 @@
 
 <style>
     .hero {
-        background-image: url('/hero2.png');
+        background-image: url('/hero4.svg');
         background-position: center;
         background-size: cover;
         height: 300px;

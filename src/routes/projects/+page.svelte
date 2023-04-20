@@ -3,6 +3,6 @@
     import { slide } from "svelte/transition";
     import { fade } from "svelte/transition";
 </script>
-<div in:slide={{duration:1100,delay:500}}>
+<div in:slide={{duration:1100,delay:300}}>
     <Projectshero />
 </div>
