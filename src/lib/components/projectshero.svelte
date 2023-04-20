@@ -1,13 +1,13 @@
 <div class="hero container-fluid">
     <div class="container">
     <h1>Projects</h1>
-    <h5>Check out my latest projects highlighted here</h5>
+    <h5>Check out what I'm working on now</h5>
     </div>
 </div>
 
 <style>
     .hero {
-        background-image: url('/hero2.png');
+        background-image: url('/hero4.svg');
         background-position: center;
         background-size: cover;
         height: 300px;

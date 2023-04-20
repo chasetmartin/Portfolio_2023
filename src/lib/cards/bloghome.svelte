@@ -1,6 +1,6 @@
 <article>
     <header>
-        Blog
+        <a role="button" class="contrast outline" href="/blog">Blog</a>
     </header>
     <div>
         Coming soon...

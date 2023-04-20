@@ -7,13 +7,22 @@
     import { slide } from "svelte/transition";
     import { blur } from "svelte/transition";
 </script>
-<div in:slide={{duration:1500}} out:blur>
+<div in:slide={{duration:1500}}>
     <Homehero />
-    <div class="container">
+    <div class="container homegrid">
     <div class="grid">
-        <div><Projectshome /></div>
-        <div><Abouthome /></div>
-        <div><Bloghome /></div>
+        <div class="card"><Projectshome /></div>
+        <div class="card"><Abouthome /></div>
+        <div class="card"><Bloghome /></div>
     </div>
     </div>
 </div>
+
+<style>
+    .homegrid {
+        margin-top: -1em;
+    }
+    .card {
+        margin-bottom: -1.35em;
+    }
+</style>

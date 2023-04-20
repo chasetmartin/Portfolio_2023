@@ -1,14 +1,13 @@
-
 <div class="hero container-fluid">
     <div class="container">
-    <h1>Chase Martin</h1>
-    <h4>Software Development & Data Engineering</h4>
+    <h1>Blog</h1>
+    <h5>Coming soon...</h5>
     </div>
 </div>
 
 <style>
     .hero {
-        background-image: url('/hero1.svg');
+        background-image: url('/hero4.svg');
         background-position: center;
         background-size: cover;
         height: 300px;
@@ -19,9 +18,4 @@
     margin-bottom: 0.3em;
     font-size: 3em;
    }
-   @media (max-width: 576px) {
-  .hero {
-    height: 230px;
-  }
-}
 </style>
