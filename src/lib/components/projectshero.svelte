@@ -1,14 +1,13 @@
-
 <div class="hero container-fluid">
     <div class="container">
-    <h1>Chase Martin</h1>
-    <h5>I'm a passionate software engineer focused on creative data-driven storytelling, and innovative solutions to current environmental challenges</h5>
+    <h1>Projects</h1>
+    <h5>Check out my latest projects highlighted here</h5>
     </div>
 </div>
 
 <style>
     .hero {
-        background-image: url('/hero1.png');
+        background-image: url('/hero2.png');
         background-position: center;
         background-size: cover;
         height: 300px;

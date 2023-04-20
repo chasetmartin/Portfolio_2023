@@ -1,13 +1,15 @@
 <script>
-   
+   import { fade } from "svelte/transition";
 </script>
 
 <nav class="container">
-    <a class="contrast" href="/">Chase Martin</a>   
-    <h6>Software Development & Data Engineering</h6>
+    <a class="contrast CMicon" href="/">C | M</a>   
     <details role="list" dir="rtl">
     <summary aria-haspopup="listbox" role="link" class="contrast">menu</summary>
         <ul role="listbox">
+            <li>
+                <a href="/">home</a>
+            </li>
             <li>
                 <a href="/about">about</a>
             </li>
@@ -19,9 +21,23 @@
 </nav>
 
 <style>
+
+    summary[role="link"].contrast:is([aria-current], :hover, :active, :focus) {
+    background-color: transparent;
+    color: var(--contrast-hover);
+    }
+
     nav {
         padding-top: 1.5em;
         padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .CMicon {
+        font-weight: 100;
+        font-size: 1.8em;
+        padding-top: 0;
+        padding-bottom: 0.5em;
         margin-bottom: 0;
     }
 </style>

@@ -23,6 +23,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource/raleway": "^4.5.12",
 		"@picocss/pico": "^1.5.9"
 	}
 }

@@ -36,7 +36,7 @@
   --switch-color: var(--primary-inverse);
   --switch-checked-background-color: var(--primary);
 
-  --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+  --font-family: "Raleway", "Roboto", "Ubuntu",
   "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
   "Segoe UI Symbol", "Noto Color Emoji";
   --line-height: 1.5;
