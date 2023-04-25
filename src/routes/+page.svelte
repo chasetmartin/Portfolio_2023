@@ -3,9 +3,11 @@
     import Projectshome from "../lib/cards/projectshome.svelte";
     import Abouthome from "../lib/cards/abouthome.svelte";
     import Bloghome from "../lib/cards/bloghome.svelte";
+    import Homefooter from "../lib/components/homefooter.svelte";
 
     import { slide } from "svelte/transition";
     import { blur } from "svelte/transition";
+
 </script>
 <div in:slide={{duration:1500}}>
     <Homehero />
@@ -15,6 +17,9 @@
         <div class="card"><Abouthome /></div>
         <div class="card"><Bloghome /></div>
     </div>
+    </div>
+    <div class="container">
+        <Homefooter />
     </div>
 </div>
 
