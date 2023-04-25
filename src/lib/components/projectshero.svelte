@@ -7,20 +7,10 @@
 
 <style>
     .hero {
-        background-image: url('/hero4.svg');
+        background-image: var(--background-hero2);
         background-position: center;
         background-size: cover;
         height: 300px;
-    }
-
-    .hero:not([data-theme=dark]) {
-        background-image: url('/otherherolight.svg');
-    }
-
-    @media only screen and (prefers-color-scheme: dark) {
-      .hero:not([data-theme]) {
-      background-image: url('/hero4.svg');
-    }
     }
    
    h1 {

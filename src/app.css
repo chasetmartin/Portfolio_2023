@@ -6,6 +6,8 @@
   --primary-hover: #455a64;
   --primary-focus: rgba(84, 110, 122, 0.125);
   --primary-inverse: #FFF;
+  --background-hero: url('/homeherolight.svg');
+  --background-hero2: url('/otherherolight.svg');
 }
 
 /* Blue-grey Dark scheme (Auto) */
@@ -17,6 +19,8 @@
     --primary-hover: #607d8b;
     --primary-focus: rgba(84, 110, 122, 0.25);
     --primary-inverse: #FFF;
+    --background-hero: url('/hero1.svg');
+    --background-hero2: url('/hero4.svg');
   }
 }
 
@@ -27,6 +31,8 @@
   --primary-hover: #607d8b;
   --primary-focus: rgba(84, 110, 122, 0.25);
   --primary-inverse: #FFF;
+  --background-hero: url('/hero1.svg');
+  --background-hero2: url('/hero4.svg');
 }
 
 /* Blue-grey (Common styles) */
@@ -156,3 +162,5 @@ input[type=reset]:is([aria-current], :hover, :active, :focus),
   --color: var(--primary-inverse);
   transform: scale(1.05);
 }
+
+/* Hero element themes */
