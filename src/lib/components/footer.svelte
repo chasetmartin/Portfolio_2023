@@ -1,20 +1,30 @@
 <script>
   import { page } from '$app/stores';
+  import { theme } from '../helpers/theme';
 
+
+  function toggleTheme() {
+  if ($theme === 'light') {
+    $theme = 'dark';
+  } else {
+    $theme = 'light';
+  }
+  document.documentElement.setAttribute('data-theme', $theme);
+}
 </script>
 
 <footer>
 <div class="grid">
+  {#if $page.url.pathname !== '/'}
   <div class="container">
     <nav aria-label="breadcrumb">
       <ul>
-          {#if $page.url.pathname !== '/'}
             <li><a href="/">home</a></li>
             <li><a href={$page.url.pathname}>{$page.url.pathname.substring(1)}</a></li>
-          {/if}
       </ul>
     </nav>
-</div>
+  </div>
+  {/if}
   <div class="container rightfoot">
     <p>&#169;2023 Chase Martin</p>
   </div>
@@ -23,7 +33,15 @@
         <p>Built with SvelteKit &#128293;</p>
       </div>
     {/if}
-  
+    <div class="container rightfoot">
+      <input type="checkbox" role="switch" on:click={toggleTheme} />
+      {#if $theme === 'light'}
+        dark
+      {:else}
+        light  
+      {/if}
+      mode
+    </div>
 </div>
 </footer>
 
