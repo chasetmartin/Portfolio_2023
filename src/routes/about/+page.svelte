@@ -18,7 +18,7 @@
         {data.about.content}
         </details>
     </div>
-    <div class="container">
+    <div class="container" in:fade={{duration:800, delay:1000}}>
         <div class="grid">
             <details open>
                 <!-- svelte-ignore a11y-no-redundant-roles -->
