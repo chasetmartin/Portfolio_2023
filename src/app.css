@@ -165,7 +165,7 @@ input[type=reset]:is([aria-current], :hover, :active, :focus),
 
 /* *
 * Grid
-* Minimal grid system with auto-layout columns
+* Minimal grid system with auto-layout columns.
 */
 /* .grid {
   grid-column-gap: var(--grid-spacing-horizontal);
