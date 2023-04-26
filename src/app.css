@@ -163,4 +163,23 @@ input[type=reset]:is([aria-current], :hover, :active, :focus),
   transform: scale(1.05);
 }
 
-/* Hero element themes */
+/* *
+* Grid
+* Minimal grid system with auto-layout columns
+*/
+/* .grid {
+  grid-column-gap: var(--grid-spacing-horizontal);
+  grid-row-gap: var(--grid-spacing-vertical);
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0;
+}
+@media (min-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(0%, calc(33.33% - var(--grid-spacing-horizontal) * 2)));
+  }
+}
+.grid > * {
+  min-width: 0;
+} */

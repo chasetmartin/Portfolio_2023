@@ -1,8 +1,11 @@
+<script>
+    export let data;
+</script>
 
 <div class="hero container-fluid">
     <div class="container">
-    <h1>About</h1>
-    <h5>I'm a passionate software engineer focused on creative data-driven storytelling, and innovative solutions to current environmental challenges</h5>
+    <h1>{data.about.title}</h1>
+    <h5>{data.about.subtitle}</h5>
     </div>
 </div>
 

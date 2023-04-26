@@ -34,7 +34,7 @@
       </div>
     {/if}
     <div class="container rightfoot">
-      <input type="checkbox" role="switch" on:click={toggleTheme} />
+      <input type="checkbox" role="switch" id="theme" name="themetoggle" on:click={toggleTheme} />
       {#if $theme === 'light'}
         dark
       {:else}
