@@ -3,3 +3,4 @@
 ### Check out the live app during the build process here: https://chasemartin.netlify.app/
 This application uses server-side rendering to quickly load required data and make necessary API calls for a ⚡️ fast user experience.
 ### Check out the Projects page to see an example of server-rendered data fetching from the GitHub REST API.
+Additionally, the about page uses server-side data loading to read JSON objects and return my respective skills and experience in the form of "cards", a popular front-end design concept.
