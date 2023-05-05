@@ -1,7 +1,7 @@
 <div class="hero container-fluid">
     <div class="container">
     <h1>Blog</h1>
-    <h5>Coming soon...</h5>
+    <h2>Coming soon...</h2>
     </div>
 </div>
 

@@ -1,7 +1,7 @@
 <div class="hero container-fluid">
     <div class="container">
     <h1>Projects</h1>
-    <h5>Check out what I'm working on now</h5>
+    <h2>Check out what I'm working on now</h2>
     </div>
 </div>
 
@@ -18,4 +18,5 @@
     margin-bottom: 0.3em;
     font-size: 3em;
    }
+
 </style>
