@@ -1,16 +1,6 @@
 <script>
   import { page } from '$app/stores';
-  import { theme } from '../helpers/theme';
 
-
-  function toggleTheme() {
-  if ($theme === 'light') {
-    $theme = 'dark';
-  } else {
-    $theme = 'light';
-  }
-  document.documentElement.setAttribute('data-theme', $theme);
-}
 </script>
 
 <footer>
@@ -33,15 +23,6 @@
         <p>Built with SvelteKit &#128293;</p>
       </div>
     {/if}
-    <div class="container rightfoot">
-      <input type="checkbox" role="switch" id="theme" name="themetoggle" on:click={toggleTheme} />
-      {#if $theme === 'light'}
-        dark
-      {:else}
-        light  
-      {/if}
-      mode
-    </div>
 </div>
 </footer>
 

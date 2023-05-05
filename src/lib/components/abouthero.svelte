@@ -5,7 +5,7 @@
 <div class="hero container-fluid">
     <div class="container">
     <h1>{data.about.title}</h1>
-    <h5>{data.about.subtitle}</h5>
+    <h2>{data.about.subtitle}</h2>
     </div>
 </div>
 
@@ -21,5 +21,10 @@
     padding-top: 0.5em;
     margin-bottom: 0.3em;
     font-size: 3em;
+   }
+
+   h2 {
+    --font-size: 1.1rem;
+    --typography-spacing-vertical: 1.65rem;
    }
 </style>

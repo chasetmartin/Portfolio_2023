@@ -2,7 +2,7 @@
 <div class="homehero container-fluid">
     <div class="container">
     <h1>Chase Martin</h1>
-    <h4>Software Development & Data Engineering</h4>
+    <h2>Software Development & Data Engineering</h2>
     </div>
 </div>
 
