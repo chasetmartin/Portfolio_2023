@@ -1,11 +1,19 @@
 <script>
     import Abouthero from "../../lib/components/abouthero.svelte";
+    import Seo from "../../lib/components/seo.svelte";
+
     import { slide } from 'svelte/transition';
     import { fade } from "svelte/transition";
 
     export let data;
 
 </script>
+<Seo 
+    title="About | Chase Martin" 
+    description="Learn about my mission, software development experience, technical skills, and education."
+    keywords="Chase Martin, About, Software, Mission, Skills, Education"
+    type="WebPage"
+    />
 <!-- <div in:slide={{duration:1100, delay:300}}> -->
 <div in:fade={{duration:800}}>
     <Abouthero {data}/>

@@ -16,7 +16,7 @@
   </div>
   {/if}
   <div class="container rightfoot">
-    <p>&#169;2023 Chase Martin</p>
+    <p>&#169;2023 Chase Martin | Portland, OR</p>
   </div>
     {#if $page.url.pathname !== '/'}
       <div class="container rightfoot">
