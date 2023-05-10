@@ -3,6 +3,7 @@
     export let description;
     export let keywords;
     export let type;
+    export let canonical;
 
     import { page } from "$app/stores";
 
@@ -10,7 +11,9 @@
 </script>
 
 <svelte:head>
-    
+    {#if canonical}
+        <link rel="canonical" href={canonical}>
+    {/if}
     <title>{title}</title>
 	<meta property="og:title" content={title} />
     <meta name="twitter:title" content={title} />

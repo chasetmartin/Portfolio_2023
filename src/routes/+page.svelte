@@ -12,10 +12,12 @@
 </script>
 <Seo 
     title="Chase Martin" 
-    description="I'm a Portland, OR based software engineer focused on creative data-driven storytelling, and innovative solutions to current environmental challenges"
+    description="I'm a Portland, Oregon based software engineer focused on creative data-driven storytelling, and innovative solutions to current environmental challenges"
     keywords="Chase Martin, Software Devlopment, Data Engineer, Data-driven Storytelling, Open Source"
     type="WebSite"
+    canonical="https://chasethomasmartin.com"
     />
+
 <div in:slide={{duration:1500}}>
     <Homehero />
     <div class="container homegrid">
