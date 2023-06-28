@@ -9,7 +9,14 @@
         </header>
         <div>
             {#if repo.description !== null }
+            <div>
             {repo.description}
+            </div>
+            <hr> 
+            <div>
+                README:
+            </div>
+            <pre>{repo.readme}</pre>
             {/if}
         </div>
         <footer>

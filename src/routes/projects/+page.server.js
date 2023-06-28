@@ -1,12 +1,19 @@
-import { GITHUB_TOKEN } from '$env/static/private'
+import { GITHUB_TOKEN } from '$env/static/private';
 
-const EXCLUDED_REPOS = ['virtual_dr', 'developers', 'office_hours_python']
+const EXCLUDED_REPOS = ['virtual_dr', 'developers', 'office_hours_python'];
 
-const makeProjectList = async (ghResponse) => {
+const makeProjectList = async (ghResponse, fetch) => {
   if (!ghResponse || !Array.isArray(ghResponse)) return [];
-  return ghResponse
+  const repoPromises = ghResponse
     .filter((repo) => !EXCLUDED_REPOS.includes(repo.name)) // Exclude repos in exclusion list
-    .map((repo) => {
+    .map(async (repo) => {
+      const readmeUrl = 'https://raw.githubusercontent.com/chasetmartin/' + repo.name + '/master/README.md';
+      const readmeRequest = {
+        headers: GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : {},
+      };
+      const readmeResponse = await fetch(readmeUrl, readmeRequest);
+      const readmeData = await readmeResponse.text();
+      const readmeContent = readmeData;
       return {
         id: repo.id,
         name: repo.name,
@@ -23,21 +30,22 @@ const makeProjectList = async (ghResponse) => {
         stars: repo.stargazers_count,
         forks: repo.forks_count,
         issues: repo.open_issues_count,
-        topics: repo.topics // Append and merge with any hard-coded data from config
+        topics: repo.topics,
+        readme: readmeContent, // Include the README content
       };
-    })
-    .sort((a, b) => {
-        return new Date(b.updatedAt) - new Date(a.updatedAt);
     });
+  const repos = await Promise.all(repoPromises);
+  return repos.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
 };
 
 export async function load({ fetch }) {
-  const githubApiUrl = `https://api.github.com/users/chasetmartin/repos?per_page=100`;
+  const githubApiUrl = 'https://api.github.com/users/chasetmartin/repos?per_page=100';
   const githubRequest = {
     headers: GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : {},
   };
   const repos = await fetch(githubApiUrl, githubRequest)
     .then((res) => res.json())
-    .then(makeProjectList);
+    .then((ghResponse) => makeProjectList(ghResponse, fetch));
+    console.log(repos);
   return { repos };
 }
