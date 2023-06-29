@@ -2,8 +2,6 @@
     export let repo;
     const sortedTopics = repo.topics.sort().join(' | ');
 
-    import Markdown from '@magidoc/plugin-svelte-marked'
-
 </script>
 
     <article>
@@ -22,9 +20,7 @@
                         <summary>
                             <h6>{repo.description}</h6>
                         </summary>
-                        <Markdown
-            source={repo.readme}
-                />
+                        <pre>{repo.readme}</pre>
                     </details>
             {:else}
             <header>
@@ -38,9 +34,7 @@
                             <h6>{repo.description}</h6>
                             click to expand
                         </summary>
-                        <Markdown
-            source={repo.readme}
-                />
+                        <pre>{repo.readme}</pre>
                     </details>
             {/if}
         </div>
