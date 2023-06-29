@@ -23,10 +23,14 @@
     </div>
 </div>
 <div class="container" in:fade={{duration:800, delay:500}}>
-    <div>
+    <div class="grid">
+        <div class="card">
     {#each repos as repo}
+        
         <Project {repo}/>
+    
     {/each}
+        </div>
     </div>
 </div>
 

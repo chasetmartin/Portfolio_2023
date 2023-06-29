@@ -1,6 +1,6 @@
 import { GITHUB_TOKEN } from '$env/static/private';
 
-const EXCLUDED_REPOS = ['virtual_dr', 'developers', 'office_hours_python'];
+const EXCLUDED_REPOS = ['virtual_dr', 'developers', 'office_hours_python', 'Portfolio'];
 
 const makeProjectList = async (ghResponse, fetch) => {
   if (!ghResponse || !Array.isArray(ghResponse)) return [];
@@ -46,6 +46,5 @@ export async function load({ fetch }) {
   const repos = await fetch(githubApiUrl, githubRequest)
     .then((res) => res.json())
     .then((ghResponse) => makeProjectList(ghResponse, fetch));
-    console.log(repos);
   return { repos };
 }
