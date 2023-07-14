@@ -23,8 +23,8 @@
                 <ul>
                 {#each data.posts as post}
                   <li>
-                    <a href="blog/{post.slug}">
-                      <h2>{post.title}</h2>
+                    <a role="button" class="contrast" href="blog/{post.slug}">
+                      {post.title}
                     </a>
                     <p>{formatDate(post.date)}</p>
                     <p>{post.description}</p>
@@ -35,3 +35,12 @@
         </section>
         </div>
     </div>
+
+    <style>
+      li {
+    list-style-type: none;
+}
+a {
+  margin-bottom: 1em;
+}
+    </style>
