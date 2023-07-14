@@ -38,9 +38,13 @@
                 <article>
                 <header>{category}</header>
                 <div>
-                <ul>
+                <ul class="ul2">
                     {#each data.skills[category] as skill}
-                        <li>{skill}</li>
+                        <li>{skill.skill}
+                            {#if skill.logo}
+                            <img src="{skill.logo}" alt="logo"/>
+                            {/if}
+                        </li>
                     {/each}
                 </ul>
                 </div>
@@ -60,7 +64,7 @@
             <div>
               <ul>
                 {#if exp.skills !== ""}
-                  <li>Programming skills: {exp.skills}</li>
+                  <h4>Programming skills: {exp.skills}</h4>
                 {/if}
                 {#if exp.description !== ""}
                   <li>{exp.description}</li>
@@ -85,6 +89,10 @@
 
 [role=button]:is([aria-current], :hover, :active, :focus) {
   transform: scale(1.01);
+}
+
+li {
+    list-style-type: none;
 }
 
 </style>
