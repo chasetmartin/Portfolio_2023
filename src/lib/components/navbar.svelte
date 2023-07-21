@@ -223,5 +223,6 @@ nav {
     padding-top: 0;
     padding-bottom: 0.5em;
     margin-bottom: 0;
+    text-decoration: none;
 }
 </style>
