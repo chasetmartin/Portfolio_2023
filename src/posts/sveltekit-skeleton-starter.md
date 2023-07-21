@@ -22,15 +22,15 @@ Skeleton UI provides an beautiful Tailwind-driven component library for styling 
 # Now let's start a project together
 ## Let's use Skeleton UI to start a new proejct
 
-Make sure you have the latest version of Node.js installed on your machine, and then head on over to the command line. Make sure you're in a directory where you'd like you project to live:
+##### Make sure you have the latest version of Node.js installed on your machine, and then head on over to the command line. Make sure you're in a directory where you'd like you project to live:
 
 ```console
 cd myFavoriteDirectory
 
 npm create skeleton-app@latest my-skeleton-app
 ```
-###
-You'll be taken through the normal steps for creating a new SvelteKit project, with a few Skeleton-specific twists. Let your own desires create your specific project details:
+
+##### You'll be taken through the normal steps for creating a new SvelteKit project, with a few Skeleton-specific twists. Let your own desires create your specific project details:
 
 ```console
 ┌  Create Skeleton App (version 0.0.45)
@@ -53,8 +53,7 @@ Problems? Open an issue on https://github.com/skeletonlabs/skeleton/issues if no
 │  ◻ Add Vitest for unit testing ?
 │  ◻ Add Svelte Inspector for quick access to your source files from the browser ?
 ```
-###
-For Tailwind forms/typography, CodeBlock, and Popups, I would recommend adding them all for maximum flexiblity - unless of course you know you're never going to be using a codeblock - for example - in your app.
+##### For Tailwind forms/typography, CodeBlock, and Popups, I would recommend adding them all for maximum flexiblity - unless of course you know you're never going to be using a codeblock - for example - in your app.
 ```console
 ◆  What other packages would you like to install:
 │  ◻ Add Tailwind forms ?
@@ -62,8 +61,8 @@ For Tailwind forms/typography, CodeBlock, and Popups, I would recommend adding t
 │  ◻ Add CodeBlock (installs highlight.js) ?
 │  ◻ Add Popups (installs floating-ui) ?
 ```
-###
-And finally, select a theme from one of the awesome pre-built themes from Skeleton UI. Check out all of the themes in the docs [here](https://www.skeleton.dev/docs/themes). I'll be trying out Gold Nouveau, with the Skelton Welcome template (best for learning your way around).
+##### And finally, select a theme from one of the awesome pre-built themes from Skeleton UI. Check out all of the themes in the docs [here](https://www.skeleton.dev/docs/themes). I'll be trying out Gold Nouveau, with the Skelton Welcome template (best for learning your way around).
+
 ```console
 ◆  Select a theme:
 │  ● Skeleton
@@ -89,7 +88,7 @@ npm run dev
 ```
 ### Let's give it a shot! Run the dev command and open up your localhost address. Voila!
 <script>
-  import Blogimage from '$lib/components/Blogimage.svelte'
+  import Blogimage from '$lib/components/blogimage.svelte'
 </script>
 <Blogimage photo="../blogphotos/SkeletonUI.jpg" alt="SkeletonUI"/>
 
