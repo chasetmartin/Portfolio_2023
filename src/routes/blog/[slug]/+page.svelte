@@ -23,7 +23,7 @@
         <p>Published on {formatDate(data.meta.date)}</p>
         <div class="tags">
             {#each data.meta.categories as category}
-            <span>&num;{category}</span>
+            <span class="italic">&num;{category}</span>
             <span> </span>
             {/each}
         </div>
@@ -31,3 +31,9 @@
     </article>
 
 </div>
+
+<style>
+    .italic {
+        font-style: italic;
+    }
+</style>
