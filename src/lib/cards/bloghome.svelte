@@ -3,9 +3,8 @@
 </script>
 
 <article>
-    <header class="center">
-        <button class="contrast outline" on:click={() => goto('/blog', {invalidateAll: true})}>Blog</button>
-        <!-- <a role="button" class="contrast outline" href="/blog">Blog</a> -->
+    <header>
+        <a data-sveltekit-reload role="button" class="contrast outline" href="/blog">Blog</a>
     </header>
     <div>
         Now up and running!
@@ -16,11 +15,4 @@
 </article>
 
 <style>
-    button {
-        width: 50%;
-    }
-    .center {
-        display: flex;
-        justify-content: center;
-    }
 </style>
