@@ -1,6 +1,11 @@
+<script>
+    import { goto } from '$app/navigation';
+</script>
+
 <article>
-    <header>
-        <a role="button" class="contrast outline" href="/blog">Blog</a>
+    <header class="center">
+        <button class="contrast outline" on:click={() => goto('/blog')}>Blog</button>
+        <!-- <a role="button" class="contrast outline" href="/blog">Blog</a> -->
     </header>
     <div>
         Now up and running!
@@ -9,3 +14,13 @@
         Writing about programming, data wrangling, and application building.
     </footer>
 </article>
+
+<style>
+    button {
+        width: 50%;
+    }
+    .center {
+        display: flex;
+        justify-content: center;
+    }
+</style>
