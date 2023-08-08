@@ -4,7 +4,7 @@
 
 <article>
     <header class="center">
-        <button class="contrast outline" on:click={() => goto('/blog')}>Blog</button>
+        <button class="contrast outline" on:click={() => goto('/blog', {invalidateAll: true})}>Blog</button>
         <!-- <a role="button" class="contrast outline" href="/blog">Blog</a> -->
     </header>
     <div>
