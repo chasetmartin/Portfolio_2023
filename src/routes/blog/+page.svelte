@@ -4,9 +4,6 @@
 
     import { formatDate } from "$lib/helpers/date.js"
 
-    import { slide } from 'svelte/transition';
-    // import { fade } from 'svelte/transition';
-
     export let data;
 </script>
 <Seo 
@@ -15,9 +12,7 @@
     keywords="Chase Martin, Blog, Learning, How-to, Programming, Writing, Data"
     type="WebPage"
     />
-<!-- <div in:slide={{duration:1100}}> -->
-    <!-- <div in:fade={{duration:800}}> -->
-    <div>
+<div>
     <Bloghero />
         <div class="container">
             <section>
