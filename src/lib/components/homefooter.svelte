@@ -1,5 +1,5 @@
 <footer>
-    <h1>Built from scratch using SvelteKit &#128293; utilizing &#9889 fast SSR and delivering &#10024; amazing UX</h1>
+    <h1>Built from scratch using SvelteKit &#128293; utilizing SSR and delivering amazing UX &#10024;</h1>
 </footer>
 
 <style>
