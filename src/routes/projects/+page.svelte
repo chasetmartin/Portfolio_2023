@@ -15,14 +15,14 @@
     keywords="Chase Martin, Projects, Code, Programming, Data, GitHub, Repositories, API"
     type="WebPage"
     />
-<!-- <div in:slide={{duration:1100,delay:300}}> -->
-<div in:fade={{duration:800}}>
+<!-- <div in:slide|global={{duration:1100,delay:300}}> -->
+<div in:fade|global={{duration:800}}>
     <Projectshero />
     <div class="container projectcontainer">
         <h5>This page updates using the GitHub REST API and server-side-rendering to quickly load the real-time data &#9889 &#9889 &#9889</h5>
     </div>
 </div>
-<div class="container" in:fade={{duration:800, delay:500}}>
+<div class="container" in:fade|global={{duration:800, delay:500}}>
     <div class="grid">
         <div class="card">
     {#each repos as repo}

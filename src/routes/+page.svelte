@@ -17,7 +17,7 @@
     canonical="https://chasethomasmartin.com"
     />
 
-<div in:slide={{duration:1500}}>
+<div in:slide|global={{duration:1500}}>
     <Homehero />
     <div class="container homegrid">
         <!-- <div class="container-fluid banner">

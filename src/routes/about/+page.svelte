@@ -14,8 +14,8 @@
     keywords="Chase Martin, About, Software, Mission, Skills, Education"
     type="WebPage"
     />
-<!-- <div in:slide={{duration:1100, delay:300}}> -->
-<div in:fade={{duration:800}}>
+<!-- <div in:slide|global={{duration:1100, delay:300}}> -->
+<div in:fade|global={{duration:800}}>
     <Abouthero {data}/>
     <div class="container">
         <details open>
@@ -26,7 +26,7 @@
         {data.about.content}
         </details>
     </div>
-    <div class="container" in:fade={{duration:800, delay:1000}}>
+    <div class="container" in:fade|global={{duration:800, delay:1000}}>
         <div class="grid">
             <details open>
                 <!-- svelte-ignore a11y-no-redundant-roles -->
