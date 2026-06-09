@@ -6,11 +6,16 @@
 	import Button from '$lib/components/ui/button.svelte';
 </script>
 
-<Card>
-	<CardHeader title="Projects" href="/projects" />
-	<CardBody>
-		Check out my projects page &#128070; or head on over to my GitHub &#128071;
-	</CardBody>
+<Card class="group">
+	<a
+		href="/projects"
+		class="block flex-1 cursor-pointer no-underline! focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+	>
+		<CardHeader title="Projects" />
+		<CardBody>
+			Check out my projects page &#128070; or head on over to my GitHub &#128071;
+		</CardBody>
+	</a>
 	<CardFooter>
 		<Button variant="link" href="https://github.com/chasetmartin" target="_blank" rel="noreferrer">
 			GitHub
@@ -20,7 +25,7 @@
 				height="0.875em"
 				viewBox="0 0 24 24"
 				aria-hidden="true"
-				class="opacity-60 transition-opacity group-hover:opacity-100"
+				class="opacity-60 transition-opacity hover:opacity-100"
 			>
 				<path
 					fill="none"

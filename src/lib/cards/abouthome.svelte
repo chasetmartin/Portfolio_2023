@@ -6,9 +6,14 @@
 	import Button from '$lib/components/ui/button.svelte';
 </script>
 
-<Card>
-	<CardHeader title="About" href="/about" />
-	<CardBody>Learn more about me! &#128218; &#128269; &#127891;</CardBody>
+<Card class="group">
+	<a
+		href="/about"
+		class="block flex-1 cursor-pointer no-underline! focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+	>
+		<CardHeader title="About" />
+		<CardBody>Learn more about me! &#128218; &#128269; &#127891;</CardBody>
+	</a>
 	<CardFooter>
 		<Button
 			variant="link"
@@ -23,7 +28,7 @@
 				height="0.875em"
 				viewBox="0 0 24 24"
 				aria-hidden="true"
-				class="opacity-60 transition-opacity group-hover:opacity-100"
+				class="opacity-60 transition-opacity hover:opacity-100"
 			>
 				<path
 					fill="none"

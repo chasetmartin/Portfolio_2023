@@ -50,7 +50,7 @@
 					height="1em"
 					viewBox="0 0 24 24"
 					aria-hidden="true"
-					class="text-primary"
+					class="text-foreground"
 				>
 					<path
 						fill="none"
@@ -68,7 +68,7 @@
 					height="1em"
 					viewBox="0 0 24 24"
 					aria-hidden="true"
-					class="text-primary"
+					class="text-foreground"
 				>
 					<g
 						fill="none"
@@ -101,7 +101,7 @@
 						<button
 							{...props}
 							type="button"
-							class="inline-flex items-center gap-1.5 rounded-full bg-card-muted-subtle px-3 py-1.5 text-sm font-medium text-primary backdrop-blur-sm transition-colors hover:bg-card-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+							class="inline-flex items-center gap-1.5 rounded-full bg-card-muted-subtle px-3 py-1.5 text-sm font-medium text-foreground backdrop-blur-sm transition-colors hover:bg-card-muted hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
 						>
 							menu
 							<svg

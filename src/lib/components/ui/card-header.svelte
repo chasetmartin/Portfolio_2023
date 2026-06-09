@@ -24,6 +24,16 @@
 				→
 			</span>
 		</a>
+	{:else if title}
+		<div class="flex items-center justify-between gap-3">
+			<span class="text-xl font-semibold tracking-tight text-foreground">{title}</span>
+			<span
+				class="text-primary opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100"
+				aria-hidden="true"
+			>
+				→
+			</span>
+		</div>
 	{:else}
 		{@render children?.()}
 	{/if}

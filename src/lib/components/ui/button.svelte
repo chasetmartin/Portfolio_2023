@@ -10,7 +10,7 @@
 				outline:
 					'border border-primary bg-transparent text-primary hover:bg-primary-subtle',
 				secondary: 'bg-secondary text-white shadow-sm hover:opacity-90 hover:shadow-md',
-				ghost: 'text-primary hover:bg-primary-subtle',
+				ghost: 'text-foreground hover:bg-primary-subtle hover:text-primary',
 				cta: 'bg-primary text-white shadow-sm hover:shadow-md hover:brightness-110',
 				link: 'h-auto rounded-none px-0 py-0 text-sm font-medium text-foreground hover:text-primary hover:underline'
 			},
