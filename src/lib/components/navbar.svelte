@@ -19,7 +19,7 @@
 </script>
 
 <nav class="page-container flex items-center justify-between gap-4 pt-6 pb-2">
-	<a href="/" class="logo-mark no-underline">
+	<a href="/" class="logo-mark no-underline!">
 		C | M
 	</a>
 

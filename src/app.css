@@ -148,6 +148,7 @@
 		letter-spacing: 0.02em;
 		color: var(--color);
 		padding-bottom: 0.25em;
+		text-decoration: none;
 		transition: opacity 0.2s ease-in-out;
 	}
 
