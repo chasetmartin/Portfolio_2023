@@ -6,18 +6,21 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write ."
+	},
+	"engines": {
+		"node": ">=20"
 	},
 	"devDependencies": {
 		"@magidoc/plugin-svelte-marked": "^4.0.0",
 		"@sveltejs/adapter-auto": "^3.0.0",
-		"@sveltejs/adapter-netlify": "^3.0.0",
 		"@sveltejs/kit": "^2.12.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"eslint": "^8.38.0",
 		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-svelte3": "^4.0.0",
+		"eslint-plugin-svelte": "^2.46.1",
+		"svelte-eslint-parser": "^0.41.1",
 		"marked": "^5.1.0",
 		"prettier": "^3.1.0",
 		"prettier-plugin-svelte": "^3.2.6",

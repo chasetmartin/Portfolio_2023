@@ -2,7 +2,6 @@
     import Abouthero from "../../lib/components/abouthero.svelte";
     import Seo from "../../lib/components/seo.svelte";
 
-    import { slide } from 'svelte/transition';
     import { fade } from "svelte/transition";
 
   let { data } = $props();

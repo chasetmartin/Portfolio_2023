@@ -1,6 +1,5 @@
 <script>
     import { onMount } from "svelte";
-   import { fade } from "svelte/transition";
    onMount(() => { 
    const menu = document.getElementById('menu');
     document.addEventListener('click', (event) => {
@@ -84,23 +83,19 @@ details summary + ul
   -webkit-margin-start: 0;
   margin-inline-start: 0;
 }
-details summary + ul li,
-li > ul li {
+details summary + ul li {
   width: 100%;
   margin-bottom: 0;
   padding: calc(var(--form-element-spacing-vertical) * 0.25) var(--form-element-spacing-horizontal);
   list-style: none;
 }
-details summary + ul li:first-of-type,
-li > ul li:first-of-type {
+details summary + ul li:first-of-type {
   margin-top: calc(var(--form-element-spacing-vertical) * 0.5);
 }
-details summary + ul li:last-of-type,
-li > ul li:last-of-type {
+details summary + ul li:last-of-type {
   margin-bottom: calc(var(--form-element-spacing-vertical) * 0.75);
 }
-details summary + ul li a,
-li > ul li a {
+details summary + ul li a {
   display: flex;
   margin: calc(var(--form-element-spacing-vertical) * -0.5) calc(var(--form-element-spacing-horizontal) * -1);
   padding: calc(var(--form-element-spacing-vertical) * 1.5) var(--form-element-spacing-horizontal);
@@ -110,8 +105,7 @@ li > ul li a {
   text-overflow: ellipsis;
   border-radius: 0;
 }
-details summary + ul li a:hover,
-li > ul li a:hover {
+details summary + ul li a:hover {
   background-color: var(--dropdown-hover-background-color);
 }
 

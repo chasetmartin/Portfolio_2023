@@ -26,14 +26,14 @@
 
     <meta name="keywords" content={keywords} />
 
-    {@html `<script type="application/ld+json">
-        {
-        "@context": "http://schema.org",
-        "@type": "${type}",
-        "name": "${title}",
-        "description": "${description}",
-        "url": "${url}"
-        }
-        </script>`}
+    <script type="application/ld+json">
+        {JSON.stringify({
+            '@context': 'http://schema.org',
+            '@type': type,
+            name: title,
+            description,
+            url
+        })}
+    </script>
 
 </svelte:head>

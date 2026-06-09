@@ -6,7 +6,6 @@
     import Seo from '$lib/components/seo.svelte';
 
     import { slide } from "svelte/transition";
-    import { blur } from "svelte/transition";
 
 </script>
 <Seo 

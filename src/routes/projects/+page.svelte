@@ -3,11 +3,10 @@
     import Project from "../../lib/cards/project.svelte";
     import Seo from "../../lib/components/seo.svelte";
 
-    import { slide } from "svelte/transition";
     import { fade } from "svelte/transition";
     
     let { data } = $props();
-    const repos = data.repos;
+    let repos = $derived(data.repos);
 </script>
 <Seo 
     title="Projects | Chase Martin" 
