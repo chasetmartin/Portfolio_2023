@@ -1,6 +1,6 @@
 <script>
-    import '@picocss/pico';
     import '@fontsource/raleway';
+    import '../themes/prism-coldark-dark.css';
     import '../app.css';
 
     import Header from '$lib/components/header.svelte';
@@ -15,14 +15,14 @@
 
 </script>
 
-<div>
+<div class="min-h-screen bg-background text-foreground">
     <Header />
-</div>
-<main>
-    {@render children?.()}
-</main>
-<div class="container footercontainer">
-    <Footer />
+    <main>
+        {@render children?.()}
+    </main>
+    <div class="container footercontainer">
+        <Footer />
+    </div>
 </div>
 
 
