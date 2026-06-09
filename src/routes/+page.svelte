@@ -2,7 +2,6 @@
     import Homehero from "../lib/components/homehero.svelte";
     import Projectshome from "../lib/cards/projectshome.svelte";
     import Abouthome from "../lib/cards/abouthome.svelte";
-    import Bloghome from "../lib/cards/bloghome.svelte";
     import Homefooter from "../lib/components/homefooter.svelte";
     import Seo from '$lib/components/seo.svelte';
 
@@ -27,7 +26,6 @@
     <div class="grid">
         <div class="card"><Projectshome /></div>
         <div class="card"><Abouthome /></div>
-        <div class="card"><Bloghome /></div>
     </div>
     </div>
     <div class="container">

@@ -46,9 +46,6 @@ import { theme } from '../helpers/theme';
         <li>
           <a href="/projects" role="option" aria-selected="false">projects</a>
         </li>
-        <li>
-          <a data-sveltekit-reload href="/blog" role="option" aria-selected="false">blog</a>
-        </li>
       </ul>
     </details>
   </nav>

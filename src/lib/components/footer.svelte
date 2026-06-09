@@ -31,25 +31,6 @@
       </ul>
     </nav>
   </div>
-  {:else if $page.url.pathname === '/blog'}
-  <div class="container">
-    <nav aria-label="breadcrumb">
-      <ul>
-            <li><a href="/">home</a></li>
-            <li><a href="/blog">blog</a></li>
-      </ul>
-    </nav>
-  </div>
-  {:else}
-  <div class="container">
-    <nav aria-label="breadcrumb">
-      <ul>
-            <li><a href="/">home</a></li>
-            <li><a href="/blog">blog</a></li>
-            <li><a href={$page.url.pathname}>{$page.url.pathname.substring(6)}</a></li>
-      </ul>
-    </nav>
-  </div>
   {/if}
   <div class="container rightfoot">
     <p>&#169;2023 Chase Martin | Portland, OR</p>
