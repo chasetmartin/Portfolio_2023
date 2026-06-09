@@ -39,7 +39,9 @@
 				>
 					{#each Object.keys(data.skills) as category}
 						<Card class="h-auto">
-							<header class="border-b border-border bg-card-muted px-4 py-3 font-semibold">
+							<header
+								class="border-b border-border-subtle bg-surface-gradient px-4 py-3 text-base font-semibold tracking-tight"
+							>
 								{category}
 							</header>
 							<ul class="columns-1 gap-4 px-4 py-4 sm:columns-2">
@@ -65,8 +67,8 @@
 				>
 					{#each data.experience as exp}
 						<Card class="h-auto">
-							<header class="border-b border-border bg-card-muted px-4 py-3">
-								<p class="font-semibold">{exp.position} | {exp.company}</p>
+							<header class="border-b border-border-subtle bg-surface-gradient px-4 py-3">
+								<p class="font-semibold tracking-tight">{exp.position} | {exp.company}</p>
 								<p class="text-sm text-muted">
 									{exp.location} {exp.date_range}
 								</p>
@@ -80,7 +82,7 @@
 								{/if}
 							</div>
 							{#if exp.position2}
-								<footer class="border-t border-border bg-card-muted px-4 py-3 text-sm">
+								<footer class="border-t border-border-subtle bg-surface-gradient px-4 py-3 text-sm">
 									{exp.position2} | {exp.company2}
 									<br />
 									{exp.location2} {exp.date_range2}

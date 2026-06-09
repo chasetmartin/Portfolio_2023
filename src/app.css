@@ -21,12 +21,24 @@
 	background-color: var(--card-sectionning-background-color);
 }
 
+@utility bg-card-muted-subtle {
+	background-color: color-mix(in srgb, var(--card-sectionning-background-color) 60%, transparent);
+}
+
+@utility bg-primary-subtle {
+	background-color: var(--primary-subtle);
+}
+
 @utility text-foreground {
 	color: var(--color);
 }
 
 @utility border-border {
 	border-color: var(--card-border-color);
+}
+
+@utility border-border-subtle {
+	border-color: var(--card-border-color-subtle);
 }
 
 @utility border-primary {
@@ -53,17 +65,35 @@
 	outline-color: var(--primary);
 }
 
+@utility bg-surface-gradient {
+	background: var(--surface-gradient);
+}
+
+@utility shadow-card {
+	box-shadow: var(--card-box-shadow);
+}
+
+@utility shadow-card-hover {
+	box-shadow: var(--card-shadow-hover);
+}
+
 @layer components {
 	.page-container {
 		@apply mx-auto w-full max-w-6xl px-4;
 	}
 
 	.hero-section {
-		@apply h-[300px] bg-cover bg-center max-sm:h-[230px];
+		@apply relative h-[300px] bg-cover bg-center max-sm:h-[230px];
+	}
+
+	.hero-section::after {
+		content: '';
+		@apply pointer-events-none absolute inset-x-0 bottom-0 h-24;
+		background: linear-gradient(to top, var(--background-color), transparent);
 	}
 
 	.hero-title {
-		@apply mb-2 pt-2 text-4xl font-semibold text-foreground sm:text-5xl;
+		@apply relative z-10 mb-2 pt-2 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-6xl;
 	}
 
 	[data-theme='dark'] .hero-section .hero-title {
@@ -71,7 +101,7 @@
 	}
 
 	.hero-subtitle {
-		@apply max-w-3xl text-lg font-normal;
+		@apply relative z-10 max-w-3xl text-lg font-normal leading-relaxed;
 		color: color-mix(in srgb, var(--color) 80%, transparent);
 	}
 
@@ -80,7 +110,7 @@
 	}
 
 	.surface-card {
-		@apply overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md;
+		@apply overflow-hidden rounded-2xl border border-border-subtle bg-card shadow-card transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-card-hover;
 	}
 
 	.btn-outline {
@@ -92,7 +122,7 @@
 	}
 
 	.section-trigger {
-		@apply flex w-full cursor-pointer items-center justify-between gap-3 rounded-lg border border-border bg-card px-4 py-3 text-left font-medium text-primary transition-colors duration-200 hover:bg-card-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+		@apply flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl bg-card-muted-subtle px-4 py-3.5 text-left text-lg font-semibold tracking-tight text-foreground transition-colors duration-200 hover:bg-card-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
 	}
 
 	.breadcrumb-list {
@@ -100,7 +130,7 @@
 	}
 
 	.breadcrumb-list a {
-		@apply text-primary no-underline hover:text-primary-hover;
+		@apply rounded-full px-2.5 py-1 text-primary no-underline transition-colors hover:bg-card-muted hover:text-primary-hover;
 	}
 
 	.text-body {
@@ -155,7 +185,12 @@
   --card-background-color: #f8f9fa;
   --card-sectionning-background-color: #f1f3f5;
   --card-border-color: #e2e8f0;
-  --card-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --card-border-color-subtle: color-mix(in srgb, var(--card-border-color) 50%, transparent);
+  --card-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.1);
+  --surface-gradient: linear-gradient(180deg, var(--card-background-color) 0%, var(--card-sectionning-background-color) 100%);
+  --primary-subtle: color-mix(in srgb, var(--primary) 12%, transparent);
+  --radius-card: 1.25rem;
   --dropdown-border-color: #e2e8f0;
   --dropdown-background-color: #ffffff;
   --dropdown-color: inherit;
@@ -184,7 +219,11 @@
     --card-background-color: #1a2329;
     --card-sectionning-background-color: #151d23;
     --card-border-color: #2d3748;
-    --card-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+    --card-border-color-subtle: color-mix(in srgb, var(--card-border-color) 40%, transparent);
+    --card-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.25);
+    --card-shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.35);
+    --surface-gradient: linear-gradient(180deg, var(--card-background-color) 0%, var(--card-sectionning-background-color) 100%);
+    --primary-subtle: color-mix(in srgb, var(--primary) 15%, transparent);
     --dropdown-border-color: #2d3748;
     --dropdown-background-color: #1a2329;
     --dropdown-color: #e2e8f0;
@@ -213,7 +252,11 @@
   --card-background-color: #1a2329;
   --card-sectionning-background-color: #151d23;
   --card-border-color: #2d3748;
-  --card-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+  --card-border-color-subtle: color-mix(in srgb, var(--card-border-color) 40%, transparent);
+  --card-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.25);
+  --card-shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --surface-gradient: linear-gradient(180deg, var(--card-background-color) 0%, var(--card-sectionning-background-color) 100%);
+  --primary-subtle: color-mix(in srgb, var(--primary) 15%, transparent);
   --dropdown-border-color: #2d3748;
   --dropdown-background-color: #1a2329;
   --dropdown-color: #e2e8f0;

@@ -18,7 +18,7 @@
 	});
 </script>
 
-<footer class="page-container border-t border-border py-6">
+<footer class="page-container border-t border-border-subtle py-8">
 	<div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
 		{#if crumbs.length}
 			<nav aria-label="breadcrumb">

@@ -19,8 +19,8 @@
 	<Homehero />
 	<div class="page-container mt-4">
 		<div class="grid gap-6 md:grid-cols-2">
-			<Projectshome />
 			<Abouthome />
+			<Projectshome />
 		</div>
 	</div>
 	<Homefooter />

@@ -2,6 +2,7 @@
 	import { DropdownMenu, Switch } from 'bits-ui';
 	import { cn } from '$lib/utils.js';
 	import { theme, applyTheme } from '../helpers/theme.js';
+	import Button from '$lib/components/ui/button.svelte';
 
 	const links = [
 		{ href: '/', label: 'home' },
@@ -23,7 +24,9 @@
 	</a>
 
 	<div class="flex items-center gap-3">
-		<div class="flex items-center gap-2">
+		<div
+			class="flex items-center gap-2 rounded-full bg-card-muted-subtle px-2 py-1 backdrop-blur-sm"
+		>
 			<Switch.Root
 				checked={isDark}
 				onCheckedChange={handleThemeChange}
@@ -43,8 +46,8 @@
 			{#if isDark}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					width="1.4em"
-					height="1.4em"
+					width="1em"
+					height="1em"
 					viewBox="0 0 24 24"
 					aria-hidden="true"
 					class="text-primary"
@@ -61,8 +64,8 @@
 			{:else}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					width="1.4em"
-					height="1.4em"
+					width="1em"
+					height="1em"
 					viewBox="0 0 24 24"
 					aria-hidden="true"
 					class="text-primary"
@@ -83,50 +86,64 @@
 			{/if}
 		</div>
 
-		<DropdownMenu.Root>
-			<DropdownMenu.Trigger>
-				{#snippet child({ props })}
-					<button {...props} type="button" class="btn-outline inline-flex items-center gap-1.5 px-3 py-1.5 text-sm">
-						menu
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="1em"
-							height="1em"
-							viewBox="0 0 24 24"
-							aria-hidden="true"
+		<nav class="hidden items-center gap-1 md:flex" aria-label="Main navigation">
+			{#each links as link}
+				<Button variant="ghost" size="sm" href={link.href} class="rounded-full px-3">
+					{link.label}
+				</Button>
+			{/each}
+		</nav>
+
+		<div class="md:hidden">
+			<DropdownMenu.Root>
+				<DropdownMenu.Trigger>
+					{#snippet child({ props })}
+						<button
+							{...props}
+							type="button"
+							class="inline-flex items-center gap-1.5 rounded-full bg-card-muted-subtle px-3 py-1.5 text-sm font-medium text-primary backdrop-blur-sm transition-colors hover:bg-card-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
 						>
-							<path
-								fill="none"
-								stroke="currentColor"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M6 9l6 6 6-6"
-							/>
-						</svg>
-					</button>
-				{/snippet}
-			</DropdownMenu.Trigger>
-			<DropdownMenu.Portal>
-				<DropdownMenu.Content
-					class="z-50 min-w-40 animate-in fade-in-0 zoom-in-95 rounded-lg border border-border bg-card p-1 shadow-lg"
-					sideOffset={6}
-				>
-					{#each links as link}
-						<DropdownMenu.Item>
-							{#snippet child({ props })}
-								<a
-									{...props}
-									href={link.href}
-									class="block rounded-md px-3 py-2 text-sm text-foreground no-underline outline-none transition-colors hover:bg-card-muted focus:bg-card-muted"
-								>
-									{link.label}
-								</a>
-							{/snippet}
-						</DropdownMenu.Item>
-					{/each}
-				</DropdownMenu.Content>
-			</DropdownMenu.Portal>
-		</DropdownMenu.Root>
+							menu
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="1em"
+								height="1em"
+								viewBox="0 0 24 24"
+								aria-hidden="true"
+							>
+								<path
+									fill="none"
+									stroke="currentColor"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M6 9l6 6 6-6"
+								/>
+							</svg>
+						</button>
+					{/snippet}
+				</DropdownMenu.Trigger>
+				<DropdownMenu.Portal>
+					<DropdownMenu.Content
+						class="z-50 min-w-40 animate-in fade-in-0 zoom-in-95 rounded-xl border border-border-subtle bg-card p-1 shadow-card"
+						sideOffset={6}
+					>
+						{#each links as link}
+							<DropdownMenu.Item>
+								{#snippet child({ props })}
+									<a
+										{...props}
+										href={link.href}
+										class="block rounded-lg px-3 py-2 text-sm text-foreground no-underline outline-none transition-colors hover:bg-card-muted focus:bg-card-muted"
+									>
+										{link.label}
+									</a>
+								{/snippet}
+							</DropdownMenu.Item>
+						{/each}
+					</DropdownMenu.Content>
+				</DropdownMenu.Portal>
+			</DropdownMenu.Root>
+		</div>
 	</div>
 </nav>

@@ -4,13 +4,15 @@
 	import { cn } from '$lib/utils.js';
 
 	const buttonVariants = tv({
-		base: 'inline-flex items-center justify-center rounded-lg font-medium no-underline transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50',
+		base: 'group inline-flex items-center justify-center gap-1.5 rounded-xl font-medium no-underline! transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50',
 		variants: {
 			variant: {
 				outline:
-					'border border-primary bg-transparent text-primary hover:bg-primary hover:text-white',
-				secondary: 'bg-secondary text-white hover:opacity-90',
-				ghost: 'text-primary hover:bg-card-muted'
+					'border border-primary bg-transparent text-primary hover:bg-primary-subtle',
+				secondary: 'bg-secondary text-white shadow-sm hover:opacity-90 hover:shadow-md',
+				ghost: 'text-primary hover:bg-primary-subtle',
+				cta: 'bg-primary text-white shadow-sm hover:shadow-md hover:brightness-110',
+				link: 'h-auto rounded-none px-0 py-0 text-sm font-medium text-foreground hover:text-primary hover:underline'
 			},
 			size: {
 				default: 'px-4 py-2 text-sm',
@@ -25,7 +27,7 @@
 	});
 
 	/** @type {{
-	 *   variant?: 'outline' | 'secondary' | 'ghost',
+	 *   variant?: 'outline' | 'secondary' | 'ghost' | 'cta' | 'link',
 	 *   size?: 'default' | 'sm' | 'lg',
 	 *   href?: string,
 	 *   class?: string,
