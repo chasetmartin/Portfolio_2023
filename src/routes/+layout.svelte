@@ -1,28 +1,25 @@
 <script>
-    import '@fontsource/raleway';
-    import '../themes/prism-coldark-dark.css';
-    import '../app.css';
+	import { onMount } from 'svelte';
+	import '@fontsource/raleway';
+	import '../themes/prism-coldark-dark.css';
+	import '../app.css';
 
-    import Header from '$lib/components/header.svelte';
-    import Footer from '$lib/components/footer.svelte';
-    /**
-     * @typedef {Object} Props
-     * @property {import('svelte').Snippet} [children]
-     */
+	import Header from '$lib/components/header.svelte';
+	import Footer from '$lib/components/footer.svelte';
+	import { initTheme } from '$lib/helpers/theme.js';
 
-    /** @type {Props} */
-    let { children } = $props();
+	/** @type {{ children?: import('svelte').Snippet }} */
+	let { children } = $props();
 
+	onMount(() => {
+		initTheme();
+	});
 </script>
 
-<div class="min-h-screen bg-background text-foreground">
-    <Header />
-    <main>
-        {@render children?.()}
-    </main>
-    <div class="container footercontainer">
-        <Footer />
-    </div>
+<div class="flex min-h-screen flex-col">
+	<Header />
+	<main class="flex-1">
+		{@render children?.()}
+	</main>
+	<Footer />
 </div>
-
-

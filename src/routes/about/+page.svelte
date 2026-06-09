@@ -1,97 +1,95 @@
 <script>
-    import Abouthero from "../../lib/components/abouthero.svelte";
-    import Seo from "../../lib/components/seo.svelte";
+	import Abouthero from '../../lib/components/abouthero.svelte';
+	import Seo from '../../lib/components/seo.svelte';
+	import { Collapsible } from 'bits-ui';
+	import { fade } from 'svelte/transition';
+	import AccordionTrigger from '$lib/components/ui/accordion-trigger.svelte';
+	import Card from '$lib/components/ui/card.svelte';
 
-    import { fade } from "svelte/transition";
-
-  let { data } = $props();
-
+	let { data } = $props();
 </script>
-<Seo 
-    title="About | Chase Martin" 
-    description="Learn about my mission, software development experience, technical skills, and education."
-    keywords="Chase Martin, About, Software, Mission, Skills, Education"
-    type="WebPage"
-    />
-<!-- <div in:slide|global={{duration:1100, delay:300}}> -->
-<div in:fade|global={{duration:800}}>
-    <Abouthero {data}/>
-    <div class="container">
-        <details open>
-            <!-- svelte-ignore a11y_no_redundant_roles -->
-            <summary role="button">
-                Mission
-            </summary>
-        {data.about.content}
-        </details>
-    </div>
-    <div class="container" in:fade|global={{duration:800, delay:1000}}>
-        <div class="grid">
-            <details open>
-                <!-- svelte-ignore a11y_no_redundant_roles -->
-                <summary role="button" class="contrast">
-                    Skills
-                </summary>
-            <div class="container">
-                {#each Object.keys(data.skills) as category}
-                <article>
-                <header>{category}</header>
-                <div>
-                <ul class="ul2">
-                    {#each data.skills[category] as skill}
-                        <li>{skill.skill}
-                            {#if skill.logo}
-                            <img src="{skill.logo}" alt="logo"/>
-                            {/if}
-                        </li>
-                    {/each}
-                </ul>
-                </div>
-                </article>
-                {/each}
-            </div>
-            </details>
-            <details open>
-                <!-- svelte-ignore a11y_no_redundant_roles -->
-                <summary role="button" class="contrast">
-                    Experience
-                </summary>
-            <div class="container">
-                {#each data.experience as exp}
-          <article>
-            <header>{exp.position} | {exp.company} <br/> {exp.location} {exp.date_range}</header>
-            <div>
-              <ul>
-                {#if exp.skills !== ""}
-                  <h4>Programming skills: {exp.skills}</h4>
-                {/if}
-                {#if exp.description !== ""}
-                  <li>{exp.description}</li>
-                {/if}
-              </ul>
-            </div>
-            {#if exp.position2}
-            <footer>
-                {exp.position2} | {exp.company2} <br/> {exp.location2} {exp.date_range2}
-            </footer>
-            {/if}
-          </article>
-        {/each}
-            </div>
-            </details>
-        </div>
-    </div>
-    </div>
 
-<style>
+<Seo
+	title="About | Chase Martin"
+	description="Learn about my mission, software development experience, technical skills, and education."
+	keywords="Chase Martin, About, Software, Mission, Skills, Education"
+	type="WebPage"
+/>
 
+<div in:fade|global={{ duration: 800 }}>
+	<Abouthero {data} />
 
-[role=button]:is(:global([aria-current], :hover, :active, :focus)) {
-  transform: scale(1.01);
-}
+	<div class="page-container space-y-6 py-6">
+		<Collapsible.Root open>
+			<AccordionTrigger>Mission</AccordionTrigger>
+			<Collapsible.Content
+				class="overflow-hidden px-1 pt-4 text-body data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+			>
+				{data.about.content}
+			</Collapsible.Content>
+		</Collapsible.Root>
+	</div>
 
-li {
-    list-style-type: none;
-}
+	<div class="page-container pb-10" in:fade|global={{ duration: 800, delay: 1000 }}>
+		<div class="grid gap-6 lg:grid-cols-2">
+			<Collapsible.Root open>
+				<AccordionTrigger>Skills</AccordionTrigger>
+				<Collapsible.Content
+					class="space-y-4 overflow-hidden pt-4 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+				>
+					{#each Object.keys(data.skills) as category}
+						<Card class="h-auto">
+							<header class="border-b border-border bg-card-muted px-4 py-3 font-semibold">
+								{category}
+							</header>
+							<ul class="columns-1 gap-4 px-4 py-4 sm:columns-2">
+								{#each data.skills[category] as skill}
+									<li class="mb-2 flex items-center gap-2 break-inside-avoid">
+										<span class="size-2 shrink-0 rounded-full bg-primary"></span>
+										<span>{skill.skill}</span>
+										{#if skill.logo}
+											<img src={skill.logo} alt="" class="h-4 w-4" />
+										{/if}
+									</li>
+								{/each}
+							</ul>
+						</Card>
+					{/each}
+				</Collapsible.Content>
+			</Collapsible.Root>
 
-</style>
+			<Collapsible.Root open>
+				<AccordionTrigger>Experience</AccordionTrigger>
+				<Collapsible.Content
+					class="space-y-4 overflow-hidden pt-4 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+				>
+					{#each data.experience as exp}
+						<Card class="h-auto">
+							<header class="border-b border-border bg-card-muted px-4 py-3">
+								<p class="font-semibold">{exp.position} | {exp.company}</p>
+								<p class="text-sm text-muted">
+									{exp.location} {exp.date_range}
+								</p>
+							</header>
+							<div class="space-y-2 px-4 py-4 text-body">
+								{#if exp.skills !== ''}
+									<p class="text-sm font-medium">Programming skills: {exp.skills}</p>
+								{/if}
+								{#if exp.description !== ''}
+									<p>{exp.description}</p>
+								{/if}
+							</div>
+							{#if exp.position2}
+								<footer class="border-t border-border bg-card-muted px-4 py-3 text-sm">
+									{exp.position2} | {exp.company2}
+									<br />
+									{exp.location2} {exp.date_range2}
+								</footer>
+							{/if}
+						</Card>
+					{/each}
+				</Collapsible.Content>
+			</Collapsible.Root>
+		</div>
+	</div>
+</div>

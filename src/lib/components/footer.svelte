@@ -1,53 +1,43 @@
 <script>
-  import { page } from '$app/state';
+	import { page } from '$app/state';
 
+	const crumbs = $derived.by(() => {
+		const path = page.url.pathname;
+		if (path === '/') return [{ href: '/', label: 'home' }];
+		if (path === '/about')
+			return [
+				{ href: '/', label: 'home' },
+				{ href: '/about', label: 'about' }
+			];
+		if (path === '/projects')
+			return [
+				{ href: '/', label: 'home' },
+				{ href: '/projects', label: 'projects' }
+			];
+		return [];
+	});
 </script>
 
-<footer>
-<div class="grid">
-  {#if page.url.pathname === '/'}
-  <div class="container">
-    <nav aria-label="breadcrumb">
-      <ul>
-            <li><a href="/">home</a></li>
-      </ul>
-    </nav>
-  </div>
-  {:else if page.url.pathname === '/about'}
-  <div class="container">
-    <nav aria-label="breadcrumb">
-      <ul>
-            <li><a href="/">home</a></li>
-            <li><a href="/about">about</a></li>
-      </ul>
-    </nav>
-  </div>
-  {:else if page.url.pathname === '/projects'}
-  <div class="container">
-    <nav aria-label="breadcrumb">
-      <ul>
-            <li><a href="/">home</a></li>
-            <li><a href="/projects">projects</a></li>
-      </ul>
-    </nav>
-  </div>
-  {/if}
-  <div class="container rightfoot">
-    <p>&#169;2023 Chase Martin | Portland, OR</p>
-  </div>
-    {#if page.url.pathname !== '/'}
-      <div class="container rightfoot">
-        <p>Built with SvelteKit &#128293;</p>
-      </div>
-    {/if}
-</div>
-</footer>
-<style>
-    footer {
-        padding-top: 1.5em;
-    }
+<footer class="page-container border-t border-border py-6">
+	<div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+		{#if crumbs.length}
+			<nav aria-label="breadcrumb">
+				<ul class="breadcrumb-list">
+					{#each crumbs as crumb, i}
+						<li class="flex items-center gap-2">
+							{#if i > 0}<span class="text-muted">/</span>{/if}
+							<a href={crumb.href}>{crumb.label}</a>
+						</li>
+					{/each}
+				</ul>
+			</nav>
+		{/if}
 
-    .rightfoot {
-      margin-top: 1em;
-    }
-</style>
+		<div class="flex flex-col gap-2 text-sm text-muted">
+			<p>&#169;2023 Chase Martin | Portland, OR</p>
+			{#if page.url.pathname !== '/'}
+				<p>Built with SvelteKit &#128293;</p>
+			{/if}
+		</div>
+	</div>
+</footer>

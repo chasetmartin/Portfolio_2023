@@ -1,6 +1,7 @@
 <script>
-    import Navbar from "./navbar.svelte";
+	import Navbar from './navbar.svelte';
 </script>
-<header class="container">
-    <Navbar />
+
+<header>
+	<Navbar />
 </header>

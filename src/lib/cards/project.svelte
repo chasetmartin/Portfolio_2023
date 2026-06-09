@@ -1,63 +1,39 @@
 <script>
-    const sortedTopics = repo.topics.sort().join(' | ');
+	import Markdown from '@magidoc/plugin-svelte-marked';
+	import { Collapsible } from 'bits-ui';
+	import AccordionTrigger from '$lib/components/ui/accordion-trigger.svelte';
+	import Card from '$lib/components/ui/card.svelte';
 
-    import Markdown from "@magidoc/plugin-svelte-marked";
-  let { repo } = $props();
+	let { repo } = $props();
+
+	const sortedTopics = $derived(repo.topics.slice().sort().join(' | '));
 </script>
 
-    <article>
-        <!-- <header>
-            <div><a role="button" class="outline contrast" href="{repo.url}" target="_blank">{repo.name}</a></div>
-        </header> -->
-        <div>
-            <!-- {#if repo.description !== null && repo.name === "River_Dipper" || repo.name === "Dipper_Recreation" || repo.name === "Portfolio_2023" }
-            <header>
-                <div >
-                    <h3>{repo.name}</h3>
-                </div>
-            </header> 
-                    <details open>
-                        
-                        <summary>
-                            <h6>{repo.description}</h6>
-                        </summary>
-                        <Markdown source={repo.readme} />
-                    </details>
-            {:else}
-            <header>
-                <div>
-                    <h3>{repo.name}</h3>
-                </div>
-            </header> 
-                    <details>
-                      
-                        <summary >
-                            <h6>{repo.description}</h6>
-                            click to expand README
-                        </summary>
-                       <Markdown source={repo.readme} />
-                    </details>
-            {/if} -->
-            <header>
-                <div>
-                    <h3>{repo.name}</h3>
-                </div>
-            </header> 
-                    <details>
-                        <!-- svelte-ignore a11y_no_redundant_roles -->
-                        <summary role="button" class="outline">
-                            <h6>{repo.description}</h6>
-                            click to expand README
-                        </summary>
-                       <Markdown source={repo.readme} />
-                    </details>
-        </div>
-        <footer>
-            <div class="grid">
-                <div><a href="{repo.url}">{repo.url}</a></div>
-                <div>{sortedTopics}</div>
-            </div>
-        </footer>
-    </article>
+<Card class="mb-6 h-auto">
+	<header class="border-b border-border bg-card-muted px-6 py-4">
+		<h3 class="text-xl font-semibold text-primary">{repo.name}</h3>
+	</header>
 
-  
+	<div class="px-6 py-4">
+		<Collapsible.Root>
+			<AccordionTrigger>
+				<span class="text-left">
+					<span class="block font-medium">{repo.description}</span>
+					<span class="text-sm text-muted">click to expand README</span>
+				</span>
+			</AccordionTrigger>
+			<Collapsible.Content class="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+				<div class="max-w-none pt-4 text-sm leading-relaxed text-body">
+					<Markdown source={repo.readme} />
+				</div>
+			</Collapsible.Content>
+		</Collapsible.Root>
+	</div>
+
+	<footer
+		class="grid gap-2 border-t border-border bg-card-muted px-6 py-4 text-sm md:grid-cols-2"
+	>
+		<a href={repo.url} class="truncate text-primary no-underline hover:text-primary-hover">{repo.url}</a>
+		<p class="text-muted">{sortedTopics}</p>
+	</footer>
+</Card>

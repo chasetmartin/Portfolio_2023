@@ -1,16 +1,137 @@
 @import 'tailwindcss';
+@plugin 'tailwindcss-animate';
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
-	--color-primary: #546e7a;
-	--color-primary-hover: #455a64;
-	--color-background: #ffffff;
-	--color-foreground: #1b1b1b;
+	/* Tailwind spacing scale — must not use Pico's legacy --spacing (1rem) */
+	--spacing: 0.25rem;
 	--font-sans: 'Raleway', ui-sans-serif, system-ui, sans-serif;
 }
 
+@utility bg-background {
+	background-color: var(--background-color);
+}
+
+@utility bg-card {
+	background-color: var(--card-background-color);
+}
+
+@utility bg-card-muted {
+	background-color: var(--card-sectionning-background-color);
+}
+
+@utility text-foreground {
+	color: var(--color);
+}
+
+@utility border-border {
+	border-color: var(--card-border-color);
+}
+
+@utility border-primary {
+	border-color: var(--primary);
+}
+
+@utility bg-primary {
+	background-color: var(--primary);
+}
+
+@utility text-primary {
+	color: var(--primary);
+}
+
+@utility text-primary-hover {
+	color: var(--primary-hover);
+}
+
+@utility bg-secondary {
+	background-color: var(--secondary-background);
+}
+
+@utility outline-primary {
+	outline-color: var(--primary);
+}
+
+@layer components {
+	.page-container {
+		@apply mx-auto w-full max-w-6xl px-4;
+	}
+
+	.hero-section {
+		@apply h-[300px] bg-cover bg-center max-sm:h-[230px];
+	}
+
+	.hero-title {
+		@apply mb-2 pt-2 text-4xl font-semibold text-foreground sm:text-5xl;
+	}
+
+	[data-theme='dark'] .hero-section .hero-title {
+		@apply text-white;
+	}
+
+	.hero-subtitle {
+		@apply max-w-3xl text-lg font-normal;
+		color: color-mix(in srgb, var(--color) 80%, transparent);
+	}
+
+	[data-theme='dark'] .hero-section .hero-subtitle {
+		color: rgb(255 255 255 / 0.85);
+	}
+
+	.surface-card {
+		@apply overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md;
+	}
+
+	.btn-outline {
+		@apply inline-flex cursor-pointer items-center justify-center rounded-lg border border-primary px-4 py-2 font-medium text-primary no-underline transition-colors duration-200 hover:bg-primary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+	}
+
+	.btn-secondary {
+		@apply inline-flex cursor-pointer items-center justify-center rounded-lg bg-secondary px-4 py-2 font-medium text-white no-underline transition-colors duration-200 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+	}
+
+	.section-trigger {
+		@apply flex w-full cursor-pointer items-center justify-between gap-3 rounded-lg border border-border bg-card px-4 py-3 text-left font-medium text-primary transition-colors duration-200 hover:bg-card-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+	}
+
+	.breadcrumb-list {
+		@apply flex flex-wrap items-center gap-2 text-sm;
+	}
+
+	.breadcrumb-list a {
+		@apply text-primary no-underline hover:text-primary-hover;
+	}
+
+	.text-body {
+		color: color-mix(in srgb, var(--color) 80%, transparent);
+	}
+
+	.text-muted {
+		color: color-mix(in srgb, var(--color) 60%, transparent);
+	}
+
+	.logo-mark {
+		font-size: 1.8em;
+		font-weight: 100;
+		line-height: 1;
+		letter-spacing: 0.02em;
+		color: var(--color);
+		padding-bottom: 0.25em;
+		transition: opacity 0.2s ease-in-out;
+	}
+
+	.logo-mark:hover {
+		opacity: 0.8;
+	}
+}
+
 @layer base {
+	button:not(:disabled),
+	[role='button']:not(:disabled) {
+		cursor: pointer;
+	}
+
 	body {
 		@apply min-h-screen font-sans antialiased;
 		background-color: var(--background-color);
@@ -125,12 +246,12 @@
   --border-radius2: 1.5rem;
   --border-width: 1px;
   --outline-width: 3px;
-  --spacing: 1rem;
+  --pico-spacing: 1rem;
   --typography-spacing-vertical: 1.5rem;
-  --block-spacing-vertical: calc(var(--spacing) * 2);
-  --block-spacing-horizontal: var(--spacing);
+  --block-spacing-vertical: calc(var(--pico-spacing) * 2);
+  --block-spacing-horizontal: var(--pico-spacing);
   --grid-spacing-vertical: 0;
-  --grid-spacing-horizontal: var(--spacing);
+  --grid-spacing-horizontal: var(--pico-spacing);
   --form-element-spacing-vertical: 0.75rem;
   --form-element-spacing-horizontal: 1rem;
   --nav-element-spacing-vertical: 1rem;
@@ -194,180 +315,4 @@ h5 {
 
 a {
   text-decoration: underline;
-}
-
-
-
-
-/**
- * Card (<article>)
- */
- article {
-  margin: var(--block-spacing-vertical) 0;
-  padding: var(--block-spacing-vertical) var(--block-spacing-horizontal);
-  border-radius: var(--border-radius2);
-  background: var(--card-background-color);
-  box-shadow: var(--card-box-shadow);
-}
-
-article > header,
-article > footer {
-  text-align: center;
-  margin-right: calc(var(--block-spacing-horizontal) * -1);
-  margin-left: calc(var(--block-spacing-horizontal) * -1);
-  padding: calc(var(--block-spacing-vertical) * 0.66) var(--block-spacing-horizontal);
-  background-color: var(--card-sectionning-background-color);
-}
-
-article > header {
-  margin-top: calc(var(--block-spacing-vertical) * -1);
-  margin-bottom: var(--block-spacing-vertical);
-  border-bottom: var(--border-width) solid var(--card-border-color);
-  border-top-right-radius: var(--border-radius2);
-  border-top-left-radius: var(--border-radius2);
-}
-
-article > footer {
-  margin-top: var(--block-spacing-vertical);
-  margin-bottom: calc(var(--block-spacing-vertical) * -1);
-  border-top: var(--border-width) solid var(--card-border-color);
-  border-bottom-right-radius: var(--border-radius2);
-  border-bottom-left-radius: var(--border-radius2);
-}
-
-/* Additional styles for the list within the article */
-article .ul2 {
-  columns: 2; /* Split the list into two columns */
-  column-gap: 1rem; /* Adjust the gap between columns */
-}
-
-article li {
-  position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-article li::before {
-  content: "";
-  position: absolute;
-  top: 0.75rem;
-  left: 0;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background-color: var(--primary);
-}
-
-button,
-input[type=submit],
-input[type=button],
-input[type=reset],
-[role=button] {
-  --background-color: var(--primary);
-  --border-color: var(--primary);
-  --color: var(--primary-inverse);
-  --box-shadow: var(--button-box-shadow, 0 0 0 rgba(0, 0, 0, 0));
-  padding: var(--form-element-spacing-vertical) var(--form-element-spacing-horizontal);
-  border: var(--border-width) solid var(--border-color);
-  border-radius: var(--border-radius);
-  outline: none;
-  background-color: var(--background-color);
-  box-shadow: var(--box-shadow);
-  color: var(--color);
-  font-weight: var(--font-weight);
-  font-size: 1rem;
-  line-height: var(--line-height);
-  text-align: center;
-  cursor: pointer;
-  transition: background-color var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition), transform 0.5s ease;
-}
-
-button:is([aria-current], :hover, :active, :focus),
-input[type=submit]:is([aria-current], :hover, :active, :focus),
-input[type=button]:is([aria-current], :hover, :active, :focus),
-input[type=reset]:is([aria-current], :hover, :active, :focus),
-[role=button]:is([aria-current], :hover, :active, :focus) {
-  --background-color: var(--primary-hover);
-  --border-color: var(--primary-hover);
-  --box-shadow: var(--button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0));
-  --color: var(--primary-inverse);
-  transform: scale(1.05);
-}
-
-
-/* Legacy layout shims — replaced in Phase 4 */
-.container {
-	width: 100%;
-	max-width: 75rem;
-	margin-inline: auto;
-	padding-inline: var(--spacing);
-}
-
-.container-fluid {
-	width: 100%;
-	padding-inline: var(--spacing);
-}
-
-.grid {
-	display: grid;
-	grid-column-gap: var(--grid-spacing-horizontal);
-	grid-row-gap: var(--grid-spacing-vertical);
-	grid-template-columns: 1fr;
-	margin: 0;
-}
-
-@media (min-width: 992px) {
-	.grid {
-		grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
-	}
-}
-
-.grid > * {
-	min-width: 0;
-}
-
-.contrast {
-	color: var(--primary);
-	text-decoration: none;
-}
-
-.contrast:is(:hover, :active, :focus) {
-	color: var(--primary-hover);
-}
-
-[role='button'].outline,
-a.outline {
-	--background-color: transparent;
-	--border-color: var(--primary);
-	--color: var(--primary);
-}
-
-[role='button'].secondary,
-a.secondary {
-	--background-color: var(--secondary-background);
-	--border-color: var(--secondary-border);
-	--color: var(--primary-inverse);
-}
-
-details > summary {
-	cursor: pointer;
-	list-style: none;
-}
-
-details > summary::-webkit-details-marker {
-	display: none;
-}
-
-input[type='checkbox'][role='switch'] {
-	appearance: none;
-	width: 2.5rem;
-	height: 1.25rem;
-	border-radius: 9999px;
-	background-color: var(--form-element-border-color);
-	cursor: pointer;
-	position: relative;
-}
-
-input[type='checkbox'][role='switch']:checked {
-	background-color: var(--switch-checked-background-color);
 }
