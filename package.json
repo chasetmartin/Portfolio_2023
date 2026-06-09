@@ -13,7 +13,7 @@
 		"@magidoc/plugin-svelte-marked": "^4.0.0",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/adapter-netlify": "^3.0.0",
-		"@sveltejs/kit": "^2.5.27",
+		"@sveltejs/kit": "^2.12.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"eslint": "^8.38.0",
 		"eslint-config-prettier": "^8.8.0",

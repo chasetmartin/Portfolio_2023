@@ -1,6 +1,6 @@
 <script>
 
-    import { page } from "$app/stores";
+    import { page } from "$app/state";
     let {
         title,
         description,
@@ -9,7 +9,7 @@
         canonical
     } = $props();
 
-    let url = $derived($page.url.href);
+    let url = $derived(page.url.href);
 </script>
 
 <svelte:head>
