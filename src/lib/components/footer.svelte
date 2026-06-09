@@ -1,11 +1,11 @@
 <script>
-  import { page } from '$app/stores';
+  import { page } from '$app/state';
 
 </script>
 
 <footer>
 <div class="grid">
-  {#if $page.url.pathname === '/'}
+  {#if page.url.pathname === '/'}
   <div class="container">
     <nav aria-label="breadcrumb">
       <ul>
@@ -13,7 +13,7 @@
       </ul>
     </nav>
   </div>
-  {:else if $page.url.pathname === '/about'}
+  {:else if page.url.pathname === '/about'}
   <div class="container">
     <nav aria-label="breadcrumb">
       <ul>
@@ -22,7 +22,7 @@
       </ul>
     </nav>
   </div>
-  {:else if $page.url.pathname === '/projects'}
+  {:else if page.url.pathname === '/projects'}
   <div class="container">
     <nav aria-label="breadcrumb">
       <ul>
@@ -35,7 +35,7 @@
   <div class="container rightfoot">
     <p>&#169;2023 Chase Martin | Portland, OR</p>
   </div>
-    {#if $page.url.pathname !== '/'}
+    {#if page.url.pathname !== '/'}
       <div class="container rightfoot">
         <p>Built with SvelteKit &#128293;</p>
       </div>

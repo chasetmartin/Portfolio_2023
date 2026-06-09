@@ -6,7 +6,7 @@
     import { slide } from "svelte/transition";
     import { fade } from "svelte/transition";
     
-    export let data;
+    let { data } = $props();
     const repos = data.repos;
 </script>
 <Seo 

@@ -1,13 +1,15 @@
 <script>
-    export let title;
-    export let description;
-    export let keywords;
-    export let type;
-    export let canonical;
 
     import { page } from "$app/stores";
+    let {
+        title,
+        description,
+        keywords,
+        type,
+        canonical
+    } = $props();
 
-    $: url = $page.url.href;
+    let url = $derived($page.url.href);
 </script>
 
 <svelte:head>

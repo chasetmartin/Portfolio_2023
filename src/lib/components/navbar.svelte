@@ -27,7 +27,7 @@ import { theme } from '../helpers/theme';
 <nav class="container">
     <a class="contrast CMicon" href="/">C | M</a>
     <div class="thememode">
-      <input type="checkbox" role="switch" id="theme" name="themetoggle" aria-label="Theme Toggle" on:click={toggleTheme} />
+      <input type="checkbox" role="switch" id="theme" name="themetoggle" aria-label="Theme Toggle" onclick={toggleTheme} />
       {#if $theme === 'light'}
       <svg xmlns="http://www.w3.org/2000/svg" width="1.6em" height="1.6em" viewBox="0 0 24 24" alt="dark theme"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3a6 6 0 0 0 9 9a9 9 0 1 1-9-9Z"></path></svg>
       {:else}
@@ -197,7 +197,7 @@ nav details summary[role=link] + ul {
   margin-inline-start: calc(var(--nav-link-spacing-horizontal) * -1);
 }
 
-summary[role="link"].contrast:is([aria-current], :hover, :active, :focus) {
+summary[role="link"].contrast:is(:global([aria-current], :hover, :active, :focus)) {
   background-color: transparent;
   color: var(--contrast-hover);
 }

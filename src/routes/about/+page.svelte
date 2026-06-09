@@ -5,7 +5,7 @@
     import { slide } from 'svelte/transition';
     import { fade } from "svelte/transition";
 
-    export let data;
+  let { data } = $props();
 
 </script>
 <Seo 
@@ -19,7 +19,7 @@
     <Abouthero {data}/>
     <div class="container">
         <details open>
-            <!-- svelte-ignore a11y-no-redundant-roles -->
+            <!-- svelte-ignore a11y_no_redundant_roles -->
             <summary role="button">
                 Mission
             </summary>
@@ -29,7 +29,7 @@
     <div class="container" in:fade|global={{duration:800, delay:1000}}>
         <div class="grid">
             <details open>
-                <!-- svelte-ignore a11y-no-redundant-roles -->
+                <!-- svelte-ignore a11y_no_redundant_roles -->
                 <summary role="button" class="contrast">
                     Skills
                 </summary>
@@ -53,7 +53,7 @@
             </div>
             </details>
             <details open>
-                <!-- svelte-ignore a11y-no-redundant-roles -->
+                <!-- svelte-ignore a11y_no_redundant_roles -->
                 <summary role="button" class="contrast">
                     Experience
                 </summary>
@@ -87,7 +87,7 @@
 <style>
 
 
-[role=button]:is([aria-current], :hover, :active, :focus) {
+[role=button]:is(:global([aria-current], :hover, :active, :focus)) {
   transform: scale(1.01);
 }
 

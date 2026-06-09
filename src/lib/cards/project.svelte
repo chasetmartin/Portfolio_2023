@@ -1,8 +1,8 @@
 <script>
-    export let repo;
     const sortedTopics = repo.topics.sort().join(' | ');
 
     import Markdown from "@magidoc/plugin-svelte-marked";
+  let { repo } = $props();
 </script>
 
     <article>
@@ -44,7 +44,7 @@
                 </div>
             </header> 
                     <details>
-                        <!-- svelte-ignore a11y-no-redundant-roles -->
+                        <!-- svelte-ignore a11y_no_redundant_roles -->
                         <summary role="button" class="outline">
                             <h6>{repo.description}</h6>
                             click to expand README
