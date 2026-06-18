@@ -1,13 +1,15 @@
 <script>
-    export let title;
-    export let description;
-    export let keywords;
-    export let type;
-    export let canonical;
 
-    import { page } from "$app/stores";
+    import { page } from "$app/state";
+    let {
+        title,
+        description,
+        keywords,
+        type,
+        canonical
+    } = $props();
 
-    $: url = $page.url.href;
+    let url = $derived(page.url.href);
 </script>
 
 <svelte:head>
@@ -24,14 +26,14 @@
 
     <meta name="keywords" content={keywords} />
 
-    {@html `<script type="application/ld+json">
-        {
-        "@context": "http://schema.org",
-        "@type": "${type}",
-        "name": "${title}",
-        "description": "${description}",
-        "url": "${url}"
-        }
-        </script>`}
+    <script type="application/ld+json">
+        {JSON.stringify({
+            '@context': 'http://schema.org',
+            '@type': type,
+            name: title,
+            description,
+            url
+        })}
+    </script>
 
 </svelte:head>

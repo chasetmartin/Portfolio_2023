@@ -1,22 +1,8 @@
-<div class="hero container-fluid">
-    <div class="container">
-    <h1>Projects</h1>
-    <h2>Check out what I'm working on now</h2>
-    </div>
+<div class="hero-section [background-image:var(--background-hero2)]">
+	<div class="page-container home-hero-content relative z-10 flex h-full flex-col justify-center">
+		<h1 class="hero-title">Featured work</h1>
+		<h2 class="hero-subtitle">
+			Building data systems that turn complex environmental and civic datasets into usable tools
+		</h2>
+	</div>
 </div>
-
-<style>
-    .hero {
-        background-image: var(--background-hero2);
-        background-position: center;
-        background-size: cover;
-        height: 300px;
-    }
-   
-   h1 {
-    padding-top: 0.5em;
-    margin-bottom: 0.3em;
-    font-size: 3em;
-   }
-
-</style>

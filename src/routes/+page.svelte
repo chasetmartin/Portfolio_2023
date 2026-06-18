@@ -1,48 +1,27 @@
 <script>
-    import Homehero from "../lib/components/homehero.svelte";
-    import Projectshome from "../lib/cards/projectshome.svelte";
-    import Abouthome from "../lib/cards/abouthome.svelte";
-    import Bloghome from "../lib/cards/bloghome.svelte";
-    import Homefooter from "../lib/components/homefooter.svelte";
-    import Seo from '$lib/components/seo.svelte';
-
-    import { slide } from "svelte/transition";
-    import { blur } from "svelte/transition";
-
+	import Homehero from '../lib/components/homehero.svelte';
+	import Projectshome from '../lib/cards/projectshome.svelte';
+	import Abouthome from '../lib/cards/abouthome.svelte';
+	import Homefooter from '../lib/components/homefooter.svelte';
+	import Seo from '$lib/components/seo.svelte';
+	import { slide } from 'svelte/transition';
 </script>
-<Seo 
-    title="Chase Martin" 
-    description="I'm a Portland, Oregon based software engineer focused on creative data-driven storytelling, and innovative solutions to current environmental challenges"
-    keywords="Chase Martin, Software Devlopment, Data Engineer, Data-driven Storytelling, Open Source"
-    type="WebSite"
-    canonical="https://chasethomasmartin.com"
-    />
 
-<div in:slide={{duration:1500}}>
-    <Homehero />
-    <div class="container homegrid">
-        <!-- <div class="container-fluid banner">
-            Please take a look around and check out my work, then get in touch and we can discuss how to collaborate!
-        </div> -->
-    <div class="grid">
-        <div class="card"><Projectshome /></div>
-        <div class="card"><Abouthome /></div>
-        <div class="card"><Bloghome /></div>
-    </div>
-    </div>
-    <div class="container">
-        <Homefooter />
-    </div>
+<Seo
+	title="Chase Martin"
+	description="Software engineering and data science at the intersection of water data, applied AI, and public-interest systems. UC Berkeley MIDS."
+	keywords="Chase Martin, Software Engineering, Data Science, Water Data, Applied AI, Public-Interest Systems, MIDS"
+	type="WebSite"
+	canonical="https://chasethomasmartin.com"
+/>
+
+<div in:slide|global={{ duration: 1500 }}>
+	<Homehero />
+	<div class="page-container mt-4">
+		<div class="grid gap-6 md:grid-cols-2">
+			<Abouthome />
+			<Projectshome />
+		</div>
+	</div>
+	<Homefooter />
 </div>
-
-<style>
-    .homegrid {
-        margin-top: -1em;
-    }
-    .card {
-        margin-bottom: -1.35em;
-    }
-    /* .banner {
-        margin-top: 1em;
-    } */
-</style>

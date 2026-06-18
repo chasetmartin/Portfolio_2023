@@ -25,11 +25,6 @@ export async function GET() {
         <lastmod>2023-05-08T21:49:33+00:00</lastmod>
         <priority>0.80</priority>
       </url>
-      <url>
-        <loc>https://chasethomasmartin.com/blog</loc>
-        <lastmod>2023-05-08T21:49:33+00:00</lastmod>
-        <priority>0.80</priority>
-      </url>
         </urlset>`.trim(),
         {
             headers: {

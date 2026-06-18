@@ -1,98 +1,112 @@
 <script>
-    import Abouthero from "../../lib/components/abouthero.svelte";
-    import Seo from "../../lib/components/seo.svelte";
+	import Abouthero from '../../lib/components/abouthero.svelte';
+	import Seo from '../../lib/components/seo.svelte';
+	import ProfileLinks from '$lib/components/profile-links.svelte';
+	import TagList from '$lib/components/tag-list.svelte';
+	import ExperienceCard from '$lib/cards/experience-card.svelte';
+	import Card from '$lib/components/ui/card.svelte';
+	import { Collapsible } from 'bits-ui';
+	import AccordionTrigger from '$lib/components/ui/accordion-trigger.svelte';
+	import { fade } from 'svelte/transition';
 
-    import { slide } from 'svelte/transition';
-    import { fade } from "svelte/transition";
-
-    export let data;
-
+	let { data } = $props();
 </script>
-<Seo 
-    title="About | Chase Martin" 
-    description="Learn about my mission, software development experience, technical skills, and education."
-    keywords="Chase Martin, About, Software, Mission, Skills, Education"
-    type="WebPage"
-    />
-<!-- <div in:slide={{duration:1100, delay:300}}> -->
-<div in:fade={{duration:800}}>
-    <Abouthero {data}/>
-    <div class="container">
-        <details open>
-            <!-- svelte-ignore a11y-no-redundant-roles -->
-            <summary role="button">
-                Mission
-            </summary>
-        {data.about.content}
-        </details>
-    </div>
-    <div class="container" in:fade={{duration:800, delay:1000}}>
-        <div class="grid">
-            <details open>
-                <!-- svelte-ignore a11y-no-redundant-roles -->
-                <summary role="button" class="contrast">
-                    Skills
-                </summary>
-            <div class="container">
-                {#each Object.keys(data.skills) as category}
-                <article>
-                <header>{category}</header>
-                <div>
-                <ul class="ul2">
-                    {#each data.skills[category] as skill}
-                        <li>{skill.skill}
-                            {#if skill.logo}
-                            <img src="{skill.logo}" alt="logo"/>
-                            {/if}
-                        </li>
-                    {/each}
-                </ul>
-                </div>
-                </article>
-                {/each}
-            </div>
-            </details>
-            <details open>
-                <!-- svelte-ignore a11y-no-redundant-roles -->
-                <summary role="button" class="contrast">
-                    Experience
-                </summary>
-            <div class="container">
-                {#each data.experience as exp}
-          <article>
-            <header>{exp.position} | {exp.company} <br/> {exp.location} {exp.date_range}</header>
-            <div>
-              <ul>
-                {#if exp.skills !== ""}
-                  <h4>Programming skills: {exp.skills}</h4>
-                {/if}
-                {#if exp.description !== ""}
-                  <li>{exp.description}</li>
-                {/if}
-              </ul>
-            </div>
-            {#if exp.position2}
-            <footer>
-                {exp.position2} | {exp.company2} <br/> {exp.location2} {exp.date_range2}
-            </footer>
-            {/if}
-          </article>
-        {/each}
-            </div>
-            </details>
-        </div>
-    </div>
-    </div>
 
-<style>
+<Seo
+	title="About | Chase Martin"
+	description="Software engineering and data science at the intersection of water data, applied AI, and public-interest systems. UC Berkeley MIDS."
+	keywords="Chase Martin, About, Water Data, MIDS, NMWDI, Software Engineering, Data Science, Public-Interest Technology"
+	type="WebPage"
+/>
 
+<div in:fade|global={{ duration: 800 }}>
+	<Abouthero {data} />
 
-[role=button]:is([aria-current], :hover, :active, :focus) {
-  transform: scale(1.01);
-}
+	<div class="page-container space-y-10 py-8">
+		<section class="profile-section -mt-4">
+			<ProfileLinks links={data.about.links} />
+		</section>
 
-li {
-    list-style-type: none;
-}
+		<section class="profile-section">
+			<h2 class="profile-section-heading">Current role</h2>
+			<ExperienceCard entry={data.currentRole} />
+		</section>
 
-</style>
+		<section class="profile-section">
+			<h2 class="profile-section-heading">Education</h2>
+			<Card class="h-auto">
+				<header class="border-b border-border-subtle bg-surface-gradient px-4 py-3">
+					<p class="font-semibold tracking-tight">{data.education.degree}</p>
+					<p class="text-sm text-muted">
+						{data.education.institution} · {data.education.graduation}
+					</p>
+				</header>
+				<div class="space-y-3 px-4 py-4 text-body">
+					<p>{data.education.focus}</p>
+					<p>
+						Capstone:
+						<a
+							href={data.education.capstone.url}
+							class="text-primary no-underline hover:text-primary-hover hover:underline"
+							target="_blank"
+							rel="noreferrer"
+						>
+							{data.education.capstone.name}
+						</a>
+						— {data.education.capstone.description}
+					</p>
+				</div>
+			</Card>
+		</section>
+
+		<section class="profile-section">
+			<div class="grid gap-8 lg:grid-cols-2 lg:items-start">
+				<div class="space-y-3">
+					<h2 class="profile-section-heading">About</h2>
+					<div class="space-y-4 text-body">
+						{#each data.about.bio as paragraph}
+							<p>{paragraph}</p>
+						{/each}
+					</div>
+				</div>
+
+				<div class="space-y-3">
+					<h2 class="profile-section-heading">Technical focus</h2>
+					<div class="space-y-5">
+						{#each Object.keys(data.technicalFocus) as category}
+							<div>
+								<h3 class="mb-2 text-base font-medium">{category}</h3>
+								<TagList tags={data.technicalFocus[category]} />
+							</div>
+						{/each}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="profile-section">
+			<h2 class="profile-section-heading">Previous Experience</h2>
+			<div class="space-y-4">
+				{#each data.experience as entry}
+					<ExperienceCard {entry} />
+				{/each}
+			</div>
+		</section>
+
+		<section class="profile-section">
+			<h2 class="profile-section-heading">Current interests</h2>
+			<TagList tags={data.interests} />
+		</section>
+
+		<section class="profile-section pb-2">
+			<Collapsible.Root>
+				<AccordionTrigger>{data.earlierBackground.title}</AccordionTrigger>
+				<Collapsible.Content
+					class="overflow-hidden px-1 pt-4 text-body data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+				>
+					<p>{data.earlierBackground.summary}</p>
+				</Collapsible.Content>
+			</Collapsible.Root>
+		</section>
+	</div>
+</div>
