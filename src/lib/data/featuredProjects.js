@@ -6,7 +6,7 @@ export const featuredProjects = [
 		role: 'Technical Product Manager & Engineer',
 		summary: 'Data management platform for public water and environmental data',
 		description:
-			'Internal data platform supporting the New Mexico Water Data Initiative — helping staff ingest, manage, search, and publish water-related datasets through a modern admin UI backed by a FastAPI service layer.',
+			'Internal data platform supporting the New Mexico Bureau of Geology and Mineral Resources — helping staff ingest, manage, search, and publish water-related datasets through a modern admin UI backed by a FastAPI service layer.',
 		highlights: [
 			'Refine.dev admin interface for dataset and metadata management',
 			'TypeScript/React frontend with role-based workflows',

@@ -28,33 +28,8 @@
 		</section>
 
 		<section class="profile-section">
-			<h2 class="profile-section-heading">About</h2>
-			<div class="space-y-4 text-body">
-				{#each data.about.bio as paragraph}
-					<p>{paragraph}</p>
-				{/each}
-			</div>
-		</section>
-
-		<section class="profile-section">
-			<h2 class="profile-section-heading">Technical focus</h2>
-			<div class="space-y-5">
-				{#each Object.keys(data.technicalFocus) as category}
-					<div>
-						<h3 class="mb-2 text-base font-medium">{category}</h3>
-						<TagList tags={data.technicalFocus[category]} />
-					</div>
-				{/each}
-			</div>
-		</section>
-
-		<section class="profile-section">
-			<h2 class="profile-section-heading">Experience</h2>
-			<div class="space-y-4">
-				{#each data.experience as entry}
-					<ExperienceCard {entry} />
-				{/each}
-			</div>
+			<h2 class="profile-section-heading">Current role</h2>
+			<ExperienceCard entry={data.currentRole} />
 		</section>
 
 		<section class="profile-section">
@@ -82,6 +57,40 @@
 					</p>
 				</div>
 			</Card>
+		</section>
+
+		<section class="profile-section">
+			<div class="grid gap-8 lg:grid-cols-2 lg:items-start">
+				<div class="space-y-3">
+					<h2 class="profile-section-heading">About</h2>
+					<div class="space-y-4 text-body">
+						{#each data.about.bio as paragraph}
+							<p>{paragraph}</p>
+						{/each}
+					</div>
+				</div>
+
+				<div class="space-y-3">
+					<h2 class="profile-section-heading">Technical focus</h2>
+					<div class="space-y-5">
+						{#each Object.keys(data.technicalFocus) as category}
+							<div>
+								<h3 class="mb-2 text-base font-medium">{category}</h3>
+								<TagList tags={data.technicalFocus[category]} />
+							</div>
+						{/each}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="profile-section">
+			<h2 class="profile-section-heading">Previous Experience</h2>
+			<div class="space-y-4">
+				{#each data.experience as entry}
+					<ExperienceCard {entry} />
+				{/each}
+			</div>
 		</section>
 
 		<section class="profile-section">

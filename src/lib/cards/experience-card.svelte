@@ -35,7 +35,13 @@
 			</ul>
 		{/if}
 		{#if entry.description}
-			<p>{entry.description}</p>
+			{#if Array.isArray(entry.description)}
+				{#each entry.description as paragraph}
+					<p>{paragraph}</p>
+				{/each}
+			{:else}
+				<p>{entry.description}</p>
+			{/if}
 		{/if}
 	</div>
 </Card>
