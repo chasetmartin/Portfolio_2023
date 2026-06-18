@@ -21,12 +21,15 @@
 	<div class="page-container space-y-10 py-8">
 		<section class="profile-section -mt-4">
 			<p class="text-body">
-				Selected projects
+				Selected work across public water data infrastructure, environmental data pipelines, and
+				applied AI — from product strategy and pipeline design through frontend and backend
+				implementation.
 			</p>
 		</section>
 
 		<section class="profile-section">
-			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+			<h2 class="profile-section-heading">Featured projects</h2>
+			<div class="grid gap-6">
 				{#each data.featured as project}
 					<FeaturedProjectCard {project} />
 				{/each}
@@ -36,6 +39,10 @@
 		{#if data.repos.length > 0}
 			<section class="profile-section pb-2">
 				<h2 class="profile-section-heading">More on GitHub</h2>
+				<p class="text-body">
+					Additional repositories and experiments — mostly personal projects, coursework, and smaller
+					tools.
+				</p>
 				<div class="grid gap-6 md:grid-cols-2">
 					{#each data.repos as repo}
 						<RepoCard {repo} />

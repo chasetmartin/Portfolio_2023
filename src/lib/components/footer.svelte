@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/state';
+	import Button from '$lib/components/ui/button.svelte';
 
 	const crumbs = $derived.by(() => {
 		const path = page.url.pathname;
@@ -26,7 +27,9 @@
 					{#each crumbs as crumb, i}
 						<li class="flex items-center gap-2">
 							{#if i > 0}<span class="text-muted">/</span>{/if}
-							<a href={crumb.href}>{crumb.label}</a>
+							<Button variant="ghost" size="sm" href={crumb.href} class="rounded-full px-3">
+								{crumb.label}
+							</Button>
 						</li>
 					{/each}
 				</ul>
@@ -34,7 +37,7 @@
 		{/if}
 
 		<div class="flex flex-col gap-2 text-sm text-muted">
-			<p>&#169;2023 Chase Martin | Portland, OR</p>
+			<p>&#169;2026 Chase Martin | Portland, OR</p>
 			{#if page.url.pathname !== '/'}
 				<p>Built with SvelteKit &#128293;</p>
 			{/if}
