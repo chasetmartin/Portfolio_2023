@@ -4,7 +4,7 @@
 	import { cn } from '$lib/utils.js';
 
 	const buttonVariants = tv({
-		base: 'group inline-flex items-center justify-center gap-1.5 rounded-xl font-medium no-underline! transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50',
+		base: 'group inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl font-medium no-underline! transition-[color,background-color,box-shadow,opacity] duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50',
 		variants: {
 			variant: {
 				outline:

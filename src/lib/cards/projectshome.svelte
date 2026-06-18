@@ -7,10 +7,10 @@
 	import { about } from '$lib/data/about';
 </script>
 
-<Card class="group">
+<Card class="group interactive-home-card">
 	<a
 		href="/projects"
-		class="block flex-1 cursor-pointer no-underline! focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+		class="block flex-1 no-underline! focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
 	>
 		<CardHeader title="Projects" />
 		<CardBody>

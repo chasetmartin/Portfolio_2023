@@ -86,7 +86,7 @@
 			{/if}
 		</div>
 
-		<nav class="hidden items-center gap-1 md:flex" aria-label="Main navigation">
+		<nav class="hidden items-center md:flex" aria-label="Main navigation">
 			{#each links as link}
 				<Button variant="ghost" size="sm" href={link.href} class="rounded-full px-3">
 					{link.label}

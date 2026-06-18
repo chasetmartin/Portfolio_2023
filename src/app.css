@@ -140,7 +140,11 @@
 	}
 
 	.surface-card {
-		@apply overflow-hidden rounded-2xl border border-border-subtle bg-card shadow-card transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-card-hover;
+		@apply overflow-hidden rounded-2xl border border-border-subtle bg-card shadow-card hover:shadow-card-hover;
+	}
+
+	.interactive-home-card {
+		cursor: pointer;
 	}
 
 	.btn-outline {
@@ -193,7 +197,7 @@
 	}
 
 	.profile-link {
-		@apply inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-primary bg-transparent px-3.5 py-1.5 text-sm font-medium tracking-tight text-primary no-underline! transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+		@apply relative z-[1] inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-primary bg-transparent px-3.5 py-1.5 text-sm font-medium tracking-tight text-primary no-underline! focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
 		text-decoration: none;
 	}
 
@@ -209,7 +213,7 @@
 	}
 
 	.profile-link__icon {
-		@apply opacity-70 transition-opacity duration-200;
+		@apply opacity-70;
 	}
 
 	.profile-link:hover .profile-link__icon {
@@ -270,8 +274,11 @@
 }
 
 @layer base {
+	a[href],
 	button:not(:disabled),
-	[role='button']:not(:disabled) {
+	[role='button']:not(:disabled),
+	label[for],
+	summary {
 		cursor: pointer;
 	}
 
