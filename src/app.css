@@ -163,6 +163,19 @@
 		@apply rounded-full px-2.5 py-1 text-primary no-underline transition-colors hover:bg-card-muted hover:text-primary-hover;
 	}
 
+	.tag-pill {
+		@apply rounded-full bg-card-muted-subtle px-2.5 py-1 text-sm;
+		color: color-mix(in srgb, var(--color) 80%, transparent);
+	}
+
+	.profile-section {
+		@apply space-y-3;
+	}
+
+	.profile-section-heading {
+		@apply text-lg font-semibold tracking-tight text-foreground;
+	}
+
 	.text-body {
 		color: color-mix(in srgb, var(--color) 80%, transparent);
 	}

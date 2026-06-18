@@ -13,7 +13,8 @@
 	>
 		<CardHeader title="Projects" />
 		<CardBody>
-			Check out my projects page &#128070; or head on over to my GitHub &#128071;
+			Featured work including Ocotillo, Aqueduct, and Arc Radius — water data platforms and applied
+			AI systems.
 		</CardBody>
 	</a>
 	<CardFooter>

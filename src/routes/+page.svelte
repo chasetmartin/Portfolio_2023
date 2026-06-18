@@ -9,8 +9,8 @@
 
 <Seo
 	title="Chase Martin"
-	description="I'm a Portland, Oregon based software engineer focused on creative data-driven storytelling, and innovative solutions to current environmental challenges"
-	keywords="Chase Martin, Software Devlopment, Data Engineer, Data-driven Storytelling, Open Source"
+	description="Software engineering and data science at the intersection of water data, applied AI, and public-interest systems. UC Berkeley MIDS."
+	keywords="Chase Martin, Software Engineering, Data Science, Water Data, Applied AI, Public-Interest Systems, MIDS"
 	type="WebSite"
 	canonical="https://chasethomasmartin.com"
 />

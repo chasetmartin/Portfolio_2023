@@ -12,7 +12,10 @@
 		class="block flex-1 cursor-pointer no-underline! focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
 	>
 		<CardHeader title="About" />
-		<CardBody>Learn more about me! &#128218; &#128269; &#127891;</CardBody>
+		<CardBody>
+			Water data, applied AI, and public-interest systems — background, experience, and technical
+			focus.
+		</CardBody>
 	</a>
 	<CardFooter>
 		<Button
