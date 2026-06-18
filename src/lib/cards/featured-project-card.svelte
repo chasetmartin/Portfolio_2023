@@ -10,7 +10,7 @@
 	<CardHeader title={project.name} href={project.url} />
 	<div class="flex flex-1 flex-col gap-4 px-6 py-4">
 		<p class="text-body">{project.focus}</p>
-		<TagList tags={project.stack} />
+		<TagList tags={project.stack} variant="emphasized" />
 	</div>
 	{#if project.homepage}
 		<footer class="border-t border-border-subtle bg-surface-gradient px-6 py-3 text-sm">

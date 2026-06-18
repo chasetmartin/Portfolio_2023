@@ -1,9 +1,14 @@
 <script>
-	let { tags, class: className = '' } = $props();
+	let { tags, variant = 'default', class: className = '' } = $props();
 </script>
 
-<ul class="flex flex-wrap gap-2 {className}">
+<ul class="tag-list {className}" role="list">
 	{#each tags as tag}
-		<li class="tag-pill">{tag}</li>
+		<li
+			class="tag-pill"
+			class:tag-pill--emphasized={variant === 'emphasized'}
+		>
+			{tag}
+		</li>
 	{/each}
 </ul>

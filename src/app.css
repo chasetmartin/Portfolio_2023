@@ -163,9 +163,78 @@
 		@apply rounded-full px-2.5 py-1 text-primary no-underline transition-colors hover:bg-card-muted hover:text-primary-hover;
 	}
 
+	.tag-list {
+		@apply flex flex-wrap gap-2.5;
+	}
+
 	.tag-pill {
-		@apply rounded-full bg-card-muted-subtle px-2.5 py-1 text-sm;
-		color: color-mix(in srgb, var(--color) 80%, transparent);
+		@apply inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm font-medium tracking-tight;
+		background: linear-gradient(
+			135deg,
+			var(--primary-subtle),
+			color-mix(in srgb, var(--card-sectionning-background-color) 85%, transparent)
+		);
+		border-color: color-mix(in srgb, var(--primary) 28%, var(--card-border-color));
+		color: var(--primary);
+		box-shadow:
+			0 1px 2px color-mix(in srgb, var(--primary) 10%, transparent),
+			inset 0 1px 0 color-mix(in srgb, white 40%, transparent);
+	}
+
+	.tag-pill::before {
+		content: '';
+		@apply size-1.5 shrink-0 rounded-full;
+		background: var(--primary);
+		opacity: 0.65;
+	}
+
+	.profile-links {
+		@apply flex flex-wrap gap-2;
+	}
+
+	.profile-link {
+		@apply inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-primary bg-transparent px-3.5 py-1.5 text-sm font-medium tracking-tight text-primary no-underline! transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+		text-decoration: none;
+	}
+
+	.profile-link:hover,
+	.profile-link:focus,
+	.profile-link:focus-visible {
+		text-decoration: none;
+	}
+
+	.profile-link:hover {
+		@apply bg-primary text-white;
+		box-shadow: 0 2px 8px color-mix(in srgb, var(--primary) 25%, transparent);
+	}
+
+	.profile-link__icon {
+		@apply opacity-70 transition-opacity duration-200;
+	}
+
+	.profile-link:hover .profile-link__icon {
+		@apply opacity-100;
+	}
+
+	[data-theme='dark'] .profile-link:hover {
+		color: var(--primary-inverse);
+	}
+
+	.tag-pill--emphasized {
+		@apply px-3.5 py-1.5 text-sm;
+		border-color: color-mix(in srgb, var(--primary) 38%, var(--card-border-color));
+	}
+
+	.tag-pill--emphasized::before {
+		@apply size-2;
+		opacity: 0.8;
+	}
+
+	[data-theme='dark'] .tag-pill {
+		color: color-mix(in srgb, var(--primary) 55%, white);
+		box-shadow:
+			0 1px 3px color-mix(in srgb, black 25%, transparent),
+			inset 0 1px 0 color-mix(in srgb, white 8%, transparent);
 	}
 
 	.profile-section {
