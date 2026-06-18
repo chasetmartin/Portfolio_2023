@@ -56,6 +56,3 @@ export const featuredProjects = [
 		]
 	}
 ];
-
-/** Repo slugs to exclude from the GitHub "more repos" list (featured + org repos). */
-export const featuredRepoSlugs = ['OcotilloUI', 'Aqueduct', 'arc-radius-api', 'arc-radius-ui'];
