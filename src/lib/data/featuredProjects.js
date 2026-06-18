@@ -3,7 +3,7 @@ export const featuredProjects = [
 		name: 'Ocotillo',
 		url: 'https://github.com/DataIntegrationGroup/OcotilloUI',
 		organization: 'New Mexico Bureau of Geology · Data Integration Group',
-		role: 'Technical Product Manager & Developer',
+		role: 'Technical Product Manager & Engineer',
 		summary: 'Data management platform for public water and environmental data',
 		description:
 			'Internal data platform supporting the New Mexico Water Data Initiative — helping staff ingest, manage, search, and publish water-related datasets through a modern admin UI backed by a FastAPI service layer.',
@@ -22,7 +22,7 @@ export const featuredProjects = [
 		name: 'Aqueduct',
 		url: 'https://github.com/DataIntegrationGroup/Aqueduct',
 		organization: 'New Mexico Bureau of Geology · Data Integration Group',
-		role: 'Data Engineer / Developer',
+		role: 'Technical Product Manager & Engineer',
 		summary: 'Orchestrated pipeline for water data integration',
 		description:
 			'Dagster-based data pipeline that ingests, transforms, and loads water monitoring data from disparate sources into a unified schema — making environmental datasets more interoperable and ready for downstream tools like Ocotillo.',
@@ -41,7 +41,7 @@ export const featuredProjects = [
 		url: 'https://arcradius.org/',
 		homepage: 'https://arcradius.org/',
 		organization: 'UC Berkeley MIDS · Capstone',
-		role: 'Applied ML & Full-Stack Developer',
+		role: 'Applied ML & Full-Stack Engineer',
 		summary: 'GraphRAG platform for legislative AI explanations',
 		description:
 			'Capstone project building a grounded retrieval system that pairs knowledge graphs, machine learning, and LLMs to help people understand, compare, and evaluate complex legislative information — with explicit evaluation workflows for trust and quality.',

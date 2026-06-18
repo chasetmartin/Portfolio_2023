@@ -14,8 +14,7 @@
 	>
 		<CardHeader title="About" />
 		<CardBody>
-			Water data, applied AI, and public-interest systems — background, experience, and technical
-			focus.
+			Background, experience, and technical focus.
 		</CardBody>
 	</a>
 	<CardFooter>
